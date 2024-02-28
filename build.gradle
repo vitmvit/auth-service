@@ -1,0 +1,63 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.2.1'
+	id "io.freefair.lombok" version "8.4"
+	id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'ru.clevertec.news'
+version = '0.0.1'
+
+repositories {
+	mavenLocal()
+	mavenCentral()
+}
+
+ext {
+	springVersion = '3.2.1'
+	starterVersion = '1.0'
+	swaggerVersion = '2.3.0'
+	jwtVersion = '4.4.0'
+	postgreVersion = '42.6.0'
+	liquibaseVersion = '4.25.1'
+	mapstructVersion = '1.4.1.Final'
+	testcontainersVersion = '1.19.4'
+}
+
+java {
+	sourceCompatibility = '17'
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+dependencies {
+	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.5'
+	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.5'
+
+	implementation 'io.jsonwebtoken:jjwt-api:0.12.5'
+	implementation "org.springframework.boot:spring-boot-starter-web:${springVersion}"
+	implementation "org.springframework.boot:spring-boot-starter-data-jpa:${springVersion}"
+	implementation "org.springframework.boot:spring-boot-starter-security:${springVersion}"
+	implementation "org.springframework.boot:spring-boot-starter-validation:${springVersion}"
+	implementation "org.springdoc:springdoc-openapi-starter-webmvc-ui:${swaggerVersion}"
+	implementation "com.auth0:java-jwt:${jwtVersion}"
+	implementation "org.mapstruct:mapstruct:${mapstructVersion}"
+	implementation "org.postgresql:postgresql:${postgreVersion}"
+	implementation "ru.clevertec.news:cache-lib:${starterVersion}"
+	implementation "ru.clevertec.news:dto-lib:${starterVersion}"
+	implementation "ru.clevertec.news:logging-spring-boot-starter:${starterVersion}"
+	implementation "ru.clevertec.news:exception-error-handler-spring-boot-starter:${starterVersion}"
+	annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
+
+	testImplementation "org.testcontainers:postgresql:${testcontainersVersion}"
+	testImplementation "org.testcontainers:testcontainers:${testcontainersVersion}"
+	testImplementation "org.springframework.boot:spring-boot-starter-test:${springVersion}"
+}
+
+test {
+	useJUnitPlatform()
+}

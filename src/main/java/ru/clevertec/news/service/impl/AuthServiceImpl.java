@@ -110,6 +110,14 @@ public class AuthServiceImpl implements AuthService {
             } else {
                 throw new NoAccessError();
             }
+//            var role = user.getRole().getRole();
+//            var roleToken = getRole(token);
+//            if (role.equals(roleToken) && RoleName.ADMIN.equals(role)) {
+//                return true;
+//            }
+//            var loginUser = user.getLogin();
+//            var loginToken = getUsername(token);
+//            return role.equals(roleToken) && loginUser.equals(loginToken);
             return (user.getRole().getRole().equals(getRole(token)) || user.getRole().getRole().equals(RoleName.ADMIN.getRole())) && user.getLogin().equals(getUsername(token));
         }
         throw new InvalidJwtException(INVALID_TOKEN_ERROR);

@@ -5,6 +5,7 @@ import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import ru.clevertec.news.annotation.Log;
 import ru.clevertec.news.dto.auth.JwtDto;
 import ru.clevertec.news.dto.auth.SignInDto;
 import ru.clevertec.news.dto.auth.SignUpDto;
@@ -13,6 +14,7 @@ import ru.clevertec.news.service.AuthService;
 /**
  * Контроллер для авторизации и аутентификации
  */
+@Log
 @RestController
 @AllArgsConstructor
 @RequestMapping("/api/auth")
