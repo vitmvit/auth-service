@@ -2,7 +2,6 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.2.1'
 	id "io.freefair.lombok" version "8.4"
-	id 'io.spring.dependency-management' version '1.1.4'
 }
 
 group = 'ru.clevertec.news'
@@ -14,6 +13,9 @@ repositories {
 }
 
 ext {
+	logbackVersion = '1.5.0'
+	slf4jVersion = '2.0.12'
+	jsonwebtokenVersion = '0.12.5'
 	springVersion = '3.2.1'
 	starterVersion = '1.0'
 	swaggerVersion = '2.3.0'
@@ -35,10 +37,12 @@ configurations {
 }
 
 dependencies {
-	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.5'
-	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.5'
+	runtimeOnly "io.jsonwebtoken:jjwt-impl:${jsonwebtokenVersion}"
+	runtimeOnly "io.jsonwebtoken:jjwt-jackson:${jsonwebtokenVersion}"
 
-	implementation 'io.jsonwebtoken:jjwt-api:0.12.5'
+	implementation "ch.qos.logback:logback-core:${logbackVersion}"
+	implementation "org.slf4j:slf4j-api:${slf4jVersion}"
+	implementation "io.jsonwebtoken:jjwt-api:${jsonwebtokenVersion}"
 	implementation "org.springframework.boot:spring-boot-starter-web:${springVersion}"
 	implementation "org.springframework.boot:spring-boot-starter-data-jpa:${springVersion}"
 	implementation "org.springframework.boot:spring-boot-starter-security:${springVersion}"
@@ -51,6 +55,7 @@ dependencies {
 	implementation "ru.clevertec.news:dto-lib:${starterVersion}"
 	implementation "ru.clevertec.news:logging-spring-boot-starter:${starterVersion}"
 	implementation "ru.clevertec.news:exception-error-handler-spring-boot-starter:${starterVersion}"
+
 	annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
 
 	testImplementation "org.testcontainers:postgresql:${testcontainersVersion}"

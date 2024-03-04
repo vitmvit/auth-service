@@ -4,6 +4,8 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -37,6 +39,7 @@ public class AuthServiceImpl implements AuthService {
     private final UserRepository userRepository;
     private final TokenProvider tokenProvider;
     private final AuthenticationManager authenticationManager;
+    private static final Logger logger = LoggerFactory.getLogger(AuthServiceImpl.class);
 
     @Autowired
     private ObjectMapper objectMapper;
@@ -68,8 +71,11 @@ public class AuthServiceImpl implements AuthService {
     @Transactional
     public JwtDto signUp(SignUpDto dto) {
         if (userRepository.existsByLogin(dto.login())) {
+            logger.error("AuthService: Invalid Jwt with message: " + USERNAME_IS_EXIST);
             throw new InvalidJwtException(USERNAME_IS_EXIST);
         }
+        logger.info("AuthService: check sign up");
+
         String encryptedPassword = new BCryptPasswordEncoder().encode(dto.password());
         User newUser = new User(dto.login(), encryptedPassword, dto.role());
         userRepository.save(newUser);
@@ -85,8 +91,11 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public JwtDto signIn(SignInDto dto) {
         if (!userRepository.existsByLogin(dto.login())) {
+            logger.error("AuthService: Invalid Jwt with message: " + USERNAME_NOT_EXIST);
             throw new InvalidJwtException(USERNAME_NOT_EXIST);
         }
+        logger.info("AuthService: check sign in");
+
         return buildJwt(dto.login(), dto.password());
     }
 
@@ -102,24 +111,20 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public boolean check(String token, Long userId, String login) throws JsonProcessingException {
         if (checkToken(token)) {
+            logger.info("AuthService: check user with id: " + userId);
+
             User user;
             if (userId != null) {
                 user = userRepository.findById(userId).get();
             } else if (StringUtils.isNotEmpty(login)) {
                 user = userRepository.findByLogin(login);
             } else {
+                logger.error("AuthService: No access error");
                 throw new NoAccessError();
             }
-//            var role = user.getRole().getRole();
-//            var roleToken = getRole(token);
-//            if (role.equals(roleToken) && RoleName.ADMIN.equals(role)) {
-//                return true;
-//            }
-//            var loginUser = user.getLogin();
-//            var loginToken = getUsername(token);
-//            return role.equals(roleToken) && loginUser.equals(loginToken);
             return (user.getRole().getRole().equals(getRole(token)) || user.getRole().getRole().equals(RoleName.ADMIN.getRole())) && user.getLogin().equals(getUsername(token));
         }
+        logger.error("AuthService: Invalid Jwt with message: " + INVALID_TOKEN_ERROR);
         throw new InvalidJwtException(INVALID_TOKEN_ERROR);
     }
 

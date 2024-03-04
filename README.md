@@ -92,4 +92,25 @@ Response:
 }
 ```
 
+#### POST запрос на проверку пользователя и его токена:
+
+Request:
+
+```http request
+http://localhost:8081/api/auth/check?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJpaSIsInVzZXJuYW1lIjoiaWkiLCJyb2xlIjoiU1VCU0NSSUJFUiIsImV4cCI6MTcwOTQ3ODAzOH0.h2h3MJaAliZQDaf86x5b9PWQAHKvlkYy-TEwW2WiI8Q&login=ii
+
+```
+
+Response если токен действителен и пользователь имеет доступ к данному функционалу:
+
+```text
+true
+```
+
+Response если токен не действителен или пользователь не имеет доступа к данному функционалу:
+
+```text
+false
+```
+
 

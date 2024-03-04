@@ -3,3 +3,19 @@ spring:
     name: auth-service
   profiles:
     active: dev
+  logging:
+    level:
+      org.springframework.web: INFO
+      guru.springframework.controllers: INFO
+      org.hibernate: INFO
+
+security:
+  jwt:
+    token:
+      secret-key: "secretkeysecretkeysecretkeysecretkeysecretkeysecretkeysecretkeysecretkeysecretkeysecretkeysecretkeysecretkeysecretkeysecretkeysecretkey"
+
+starter:
+  logging:
+    enabled: true
+  handler:
+    enabled: false

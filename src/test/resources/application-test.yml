@@ -1,0 +1,11 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    username: test
+    password: test
+  jpa:
+    hibernate:
+      ddl-auto: create
+  liquibase:
+    enabled: false

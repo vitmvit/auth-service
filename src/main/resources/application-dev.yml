@@ -10,17 +10,11 @@ spring:
   jpa:
     hibernate:
       ddl-auto: none
-    show-sql: true
-    properties:
-      hibernate:
-        format_sql: true
-
-security:
-  enable:
-    csrf: false
-  jwt:
-    token:
-      secret-key: "secretkeysecretkeysecretkeysecretkeysecretkeysecretkeysecretkeysecretkeysecretkeysecretkeysecretkeysecretkeysecretkeysecretkeysecretkey"
+  logging:
+    level:
+      org.springframework.web: DEBUG
+      guru.springframework.controllers: DEBUG
+      org.hibernate: DEBUG
 
 springdoc:
   swagger-ui:
