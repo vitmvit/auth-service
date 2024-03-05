@@ -1,0 +1,21 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://postgres:5432/news_management
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: none
+  level:
+    org.springframework.web: INFO
+    guru.springframework.controllers: INFO
+    org.hibernate: INFO
+
+springdoc:
+  swagger-ui:
+    enabled: true
+    path: /api/doc/
