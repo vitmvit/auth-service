@@ -35,6 +35,8 @@ dependencies {
 	runtimeOnly "io.jsonwebtoken:jjwt-impl:${jsonwebtokenVersion}"
 	runtimeOnly "io.jsonwebtoken:jjwt-jackson:${jsonwebtokenVersion}"
 
+	implementation 'org.springframework.cloud:spring-cloud-starter-config:4.1.0'
+	implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap:4.1.1'
 	implementation "ch.qos.logback:logback-core:${logbackVersion}"
 	implementation "org.slf4j:slf4j-api:${slf4jVersion}"
 	implementation "io.jsonwebtoken:jjwt-api:${jsonwebtokenVersion}"

@@ -1,21 +1,26 @@
 spring:
-  application:
-    name: auth-service
   profiles:
-    active: docker
-  logging:
-    level:
-      org.springframework.web: INFO
-      guru.springframework.controllers: INFO
-      org.hibernate: INFO
-
-security:
-  jwt:
-    token:
-      secret-key: "secretkeysecretkeysecretkeysecretkeysecretkeysecretkeysecretkeysecretkeysecretkeysecretkeysecretkeysecretkeysecretkeysecretkeysecretkey"
-
-starter:
-  logging:
-    enabled: true
-  handler:
-    enabled: false
+    active: dev
+  config:
+    import: configserver:http://localhost:8888
+#spring:
+#  application:
+#    name: auth-service
+#  profiles:
+#    active: dev
+#  logging:
+#    level:
+#      org.springframework.web: INFO
+#      guru.springframework.controllers: INFO
+#      org.hibernate: INFO
+#
+#security:
+#  jwt:
+#    token:
+#      secret-key: "secretkeysecretkeysecretkeysecretkeysecretkeysecretkeysecretkeysecretkeysecretkeysecretkeysecretkeysecretkeysecretkeysecretkeysecretkey"
+#
+#starter:
+#  logging:
+#    enabled: true
+#  handler:
+#    enabled: false
