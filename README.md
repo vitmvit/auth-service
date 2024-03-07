@@ -1,5 +1,9 @@
 # auth-service
 
+Данный микросервис предназначен для создания и проверки JWT токена, а также проверки доступа пользователя к функционалу.
+
+Является частью [этого проекта](https://github.com/vitmvit/core-service/tree/dev)
+
 # Getting Started
 
 ### Reference Documentation
@@ -22,6 +26,19 @@ The following guides illustrate how to use some features concretely:
 These additional references should also help you:
 
 * [Gradle Build Scans – insights for your project's build](https://scans.gradle.com#gradle)
+
+#### Аутентификация и авторизация:
+
+Реализована аутентификация и авторизация с помощью Spring-Boot и JWT.
+
+Для создания нового пользователя необходимо отправить POST-запрос на конечную точку с телом, содержащим логин, пароль и
+одну из доступных ролей.
+
+Доступные роли:
+
+```text
+ADMIN, USER, JOURNALIST, SUBSCRIBER
+```
 
 ## Реализация
 
