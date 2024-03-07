@@ -31,7 +31,7 @@ import java.util.Base64;
 import static ru.clevertec.news.constant.Constant.*;
 
 /**
- /* Реализация сервиса аутентификации
+ * Реализация сервиса аутентификации
  */
 @Service
 public class AuthServiceImpl implements AuthService {
@@ -48,7 +48,7 @@ public class AuthServiceImpl implements AuthService {
     private String secretKey;
 
     /**
-     /* Конструктор класса AuthServiceImpl.
+     * Конструктор класса AuthServiceImpl.
      *
      * @param userRepository        репозитория пользователей
      * @param tokenProvider         провайдер токенов
@@ -63,7 +63,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     /**
-     /* Метод для регистрации нового пользователя
+     * Метод для регистрации нового пользователя
      *
      * @param dto объект SignUpDto, содержащий данные для регистрации
      * @return объект JwtDto, содержащий JWT-токен
@@ -83,7 +83,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     /**
-     /* Метод для аутентификации пользователя
+     * Метод для аутентификации пользователя
      *
      * @param dto объект SignInDto, содержащий данные для аутентификации
      * @return объект JwtDto, содержащий JWT-токен
@@ -100,7 +100,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     /**
-     * /* Проверка прав доступа пользователя по JWT токену.
+     * Проверка прав доступа пользователя по JWT токену.
      *
      * @param token  JWT токен
      * @param userId идентификатор пользователя
@@ -129,7 +129,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     /**
-     /* Проверяет валидность JWT токена.
+     * Проверяет валидность JWT токена.
      *
      * @param token JWT токен
      * @return true, если токен валиден, иначе false
@@ -148,7 +148,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     /**
-     /* Получает роль пользователя из JWT токена
+     * Получает роль пользователя из JWT токена
      *
      * @param token JWT токен
      * @return роль пользователя
@@ -163,7 +163,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     /**
-     /* Получает имя пользователя из JWT токена
+     * Получает имя пользователя из JWT токена
      *
      * @param token JWT токен
      * @return имя пользователя

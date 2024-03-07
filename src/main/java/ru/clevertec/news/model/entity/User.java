@@ -40,7 +40,7 @@ public class User implements UserDetails {
     private RoleName role;
 
     /**
-     * /* Конструктор с параметрами.
+     * Конструктор с параметрами.
      *
      * @param login    логин пользователя
      * @param password пароль пользователя
@@ -53,7 +53,7 @@ public class User implements UserDetails {
     }
 
     /**
-     * /* {@inheritDoc}
+     * {@inheritDoc}
      */
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
