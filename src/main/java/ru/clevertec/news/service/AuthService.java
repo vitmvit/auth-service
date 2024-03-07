@@ -1,9 +1,9 @@
 package ru.clevertec.news.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import ru.clevertec.news.dto.auth.JwtDto;
-import ru.clevertec.news.dto.auth.SignInDto;
-import ru.clevertec.news.dto.auth.SignUpDto;
+import ru.clevertec.news.model.dto.JwtDto;
+import ru.clevertec.news.model.dto.SignInDto;
+import ru.clevertec.news.model.dto.SignUpDto;
 
 public interface AuthService {
 

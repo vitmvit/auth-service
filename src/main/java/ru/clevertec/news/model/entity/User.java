@@ -9,7 +9,7 @@ import lombok.experimental.FieldNameConstants;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import ru.clevertec.news.dto.constant.RoleName;
+import ru.clevertec.news.model.dto.RoleName;
 
 import java.util.Collection;
 import java.util.List;
@@ -17,7 +17,7 @@ import java.util.List;
 import static ru.clevertec.news.constant.Constant.*;
 
 /**
- * Модель пользователя
+ * /* Модель пользователя
  */
 @Table()
 @Entity(name = "users")
@@ -40,7 +40,7 @@ public class User implements UserDetails {
     private RoleName role;
 
     /**
-     * Конструктор с параметрами.
+     * /* Конструктор с параметрами.
      *
      * @param login    логин пользователя
      * @param password пароль пользователя
@@ -53,7 +53,7 @@ public class User implements UserDetails {
     }
 
     /**
-     * {@inheritDoc}
+     * /* {@inheritDoc}
      */
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -75,7 +75,7 @@ public class User implements UserDetails {
     }
 
     /**
-     * {@inheritDoc}
+     /* {@inheritDoc}
      */
     @Override
     public boolean isAccountNonExpired() {
@@ -83,7 +83,7 @@ public class User implements UserDetails {
     }
 
     /**
-     * {@inheritDoc}
+     /* {@inheritDoc}
      */
     @Override
     public boolean isAccountNonLocked() {
@@ -91,7 +91,7 @@ public class User implements UserDetails {
     }
 
     /**
-     * {@inheritDoc}
+     /* {@inheritDoc}
      */
     @Override
     public boolean isCredentialsNonExpired() {

@@ -1,14 +1,17 @@
 package ru.clevertec.news.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.clevertec.news.annotation.Log;
-import ru.clevertec.news.dto.auth.JwtDto;
-import ru.clevertec.news.dto.auth.SignInDto;
-import ru.clevertec.news.dto.auth.SignUpDto;
+import ru.clevertec.news.model.dto.JwtDto;
+import ru.clevertec.news.model.dto.SignInDto;
+import ru.clevertec.news.model.dto.SignUpDto;
 import ru.clevertec.news.service.AuthService;
 
 /**
@@ -21,6 +24,9 @@ import ru.clevertec.news.service.AuthService;
 public class AuthController {
 
     private final AuthService authService;
+
+    @Autowired
+    private ObjectMapper objectMapper;
 
     /**
      * Регистрация нового пользователя
@@ -39,8 +45,8 @@ public class AuthController {
      * @param dto объект SignInDto с данными для авторизации
      * @return объект ResponseEntity с JWT-токеном типа JwtDto и статусом OK, если авторизация успешна
      */
-    @PostMapping("/signIn")
-    public ResponseEntity<JwtDto> signIn(@RequestBody @Valid SignInDto dto) {
+    @PostMapping(value = "/signIn")
+    public ResponseEntity<JwtDto> signIn(@RequestBody @Valid SignInDto dto) throws JsonProcessingException {
         return ResponseEntity.ok(authService.signIn(dto));
     }
 
@@ -57,6 +63,6 @@ public class AuthController {
     public ResponseEntity<Boolean> check(@RequestParam("token") String token,
                                          @RequestParam(name = "userId", required = false) Long userId,
                                          @RequestParam(name = "login", required = false) String login) throws JsonProcessingException {
-        return ResponseEntity.ok(authService.check(token, userId, login));
+        return ResponseEntity.ok(authService.check((String) token, (Long) userId, (String) login));
     }
 }

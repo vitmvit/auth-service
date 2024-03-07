@@ -1,69 +1,116 @@
 plugins {
-	id 'java'
-	id 'org.springframework.boot' version '3.2.1'
-	id "io.freefair.lombok" version "8.4"
-	id 'io.spring.dependency-management' version '1.1.4'
+    id 'java'
+    id 'com.google.protobuf' version '0.9.3'
+    id 'org.springframework.boot' version '3.2.1'
+    id "io.freefair.lombok" version "8.4"
+    id 'io.spring.dependency-management' version '1.1.4'
 }
 
 group = 'ru.clevertec.news'
 version = '1.0'
 
+protobuf {
+    protoc {
+        artifact = 'com.google.protobuf:protoc:3.21.4'
+        generatedFilesBaseDir = "$projectDir/src/"
+    }
+}
+
 repositories {
-	mavenLocal()
-	mavenCentral()
+    mavenLocal()
+    mavenCentral()
 }
 
 ext {
-	logbackVersion = '1.5.0'
-	slf4jVersion = '2.0.12'
-	jsonwebtokenVersion = '0.12.5'
-	springVersion = '3.2.1'
-	starterVersion = '1.0'
-	swaggerVersion = '2.3.0'
-	jwtVersion = '4.4.0'
-	postgreVersion = '42.6.0'
-	liquibaseVersion = '4.25.1'
-	mapstructVersion = '1.4.1.Final'
-	testcontainersVersion = '1.19.4'
+    logbackVersion = '1.5.0'
+    slf4jVersion = '2.0.12'
+    jsonwebtokenVersion = '0.12.5'
+    starterVersion = '1.0'
+    swaggerVersion = '2.3.0'
+    jwtVersion = '4.4.0'
+    mapstructVersion = '1.4.1.Final'
+    testcontainersVersion = '1.19.4'
+
+    springCloudVersion = '2023.0.0'
 }
 
 java {
-	sourceCompatibility = '17'
+    sourceCompatibility = '17'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java']
+        }
+        resources {
+            srcDirs = ['src/main/resources']
+        }
+    }
 }
 
 dependencies {
-	runtimeOnly "io.jsonwebtoken:jjwt-impl:${jsonwebtokenVersion}"
-	runtimeOnly "io.jsonwebtoken:jjwt-jackson:${jsonwebtokenVersion}"
 
-	implementation 'org.springframework.cloud:spring-cloud-starter-config:4.1.0'
-	implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap:4.1.1'
-	implementation "ch.qos.logback:logback-core:${logbackVersion}"
-	implementation "org.slf4j:slf4j-api:${slf4jVersion}"
-	implementation "io.jsonwebtoken:jjwt-api:${jsonwebtokenVersion}"
-	implementation "org.springframework.boot:spring-boot-starter-web:${springVersion}"
-	implementation "org.springframework.boot:spring-boot-starter-data-jpa:${springVersion}"
-	implementation "org.springframework.boot:spring-boot-starter-security:${springVersion}"
-	implementation "org.springframework.boot:spring-boot-starter-validation:${springVersion}"
-	implementation "org.springdoc:springdoc-openapi-starter-webmvc-ui:${swaggerVersion}"
-	implementation "com.auth0:java-jwt:${jwtVersion}"
-	implementation "org.mapstruct:mapstruct:${mapstructVersion}"
-	implementation "org.postgresql:postgresql:${postgreVersion}"
-	implementation "ru.clevertec.news:cache-lib:${starterVersion}"
-	implementation "ru.clevertec.news:dto-lib:${starterVersion}"
-	implementation "ru.clevertec.news:logging-spring-boot-starter:${starterVersion}"
-	implementation "ru.clevertec.news:exception-error-handler-spring-boot-starter:${starterVersion}"
+    implementation group: 'com.googlecode.protobuf-java-format', name: 'protobuf-java-format', version: '1.4'
+    implementation group: 'com.google.protobuf', name: 'protobuf-java-util', version: '3.21.4'
+    implementation 'com.google.protobuf:protobuf-java:3.21.4'
+    implementation "org.springframework.cloud:spring-cloud-config-client"
+    implementation 'org.springframework.cloud:spring-cloud-config-server'
+    implementation 'org.springframework.cloud:spring-cloud-starter-config'
+    implementation 'org.springframework.boot:spring-boot-starter'
 
-	annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
+    runtimeOnly "io.jsonwebtoken:jjwt-impl:${jsonwebtokenVersion}"
+    runtimeOnly "io.jsonwebtoken:jjwt-jackson:${jsonwebtokenVersion}"
 
-	testImplementation "org.testcontainers:postgresql:${testcontainersVersion}"
-	testImplementation "org.testcontainers:testcontainers:${testcontainersVersion}"
-	testImplementation "org.springframework.boot:spring-boot-starter-test:${springVersion}"
+    implementation 'org.springframework.cloud:spring-cloud-starter-config'
+    implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
+    implementation "org.springframework.boot:spring-boot-starter-web"
+    implementation "org.springframework.boot:spring-boot-starter-data-jpa"
+    implementation "org.springframework.boot:spring-boot-starter-security:"
+    implementation "org.springframework.boot:spring-boot-starter-validation:"
+    implementation "org.springdoc:springdoc-openapi-starter-webmvc-ui:${swaggerVersion}"
+
+    implementation "ch.qos.logback:logback-core:${logbackVersion}"
+    implementation "org.slf4j:slf4j-api:${slf4jVersion}"
+    implementation "io.jsonwebtoken:jjwt-api:${jsonwebtokenVersion}"
+    implementation "com.auth0:java-jwt:${jwtVersion}"
+    implementation "org.mapstruct:mapstruct:${mapstructVersion}"
+    implementation "org.postgresql:postgresql"
+
+    implementation "ru.clevertec.news:cache-lib:${starterVersion}"
+    implementation "ru.clevertec.news:logging-spring-boot-starter:${starterVersion}"
+    implementation "ru.clevertec.news:exception-error-handler-spring-boot-starter:${starterVersion}"
+
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
+
+    testImplementation "org.testcontainers:postgresql"
+    testImplementation "org.testcontainers:testcontainers:${testcontainersVersion}"
+    testImplementation "org.springframework.boot:spring-boot-starter-test"
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:$springCloudVersion"
+    }
 }
 
 test {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }
 
 springBoot {
-	mainClass = 'ru.clevertec.news.AuthApp'
+    mainClass = 'ru.clevertec.news.AuthApp'
+}
+
+tasks.named("build") {
+    dependsOn('generateProto')
+}
+
+tasks.named("assemble") {
+    dependsOn('generateProto')
+}
+
+tasks.withType(JavaCompile) {
+    options.compilerArgs << "-Xlint:-path"
 }

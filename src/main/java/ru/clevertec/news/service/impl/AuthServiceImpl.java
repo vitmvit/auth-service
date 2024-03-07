@@ -14,12 +14,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.clevertec.news.config.TokenProvider;
-import ru.clevertec.news.dto.auth.JwtDto;
-import ru.clevertec.news.dto.auth.SignInDto;
-import ru.clevertec.news.dto.auth.SignUpDto;
-import ru.clevertec.news.dto.constant.RoleName;
 import ru.clevertec.news.exception.InvalidJwtException;
 import ru.clevertec.news.exception.NoAccessError;
+import ru.clevertec.news.model.dto.JwtDto;
+import ru.clevertec.news.model.dto.RoleName;
+import ru.clevertec.news.model.dto.SignInDto;
+import ru.clevertec.news.model.dto.SignUpDto;
 import ru.clevertec.news.model.entity.TokenPayload;
 import ru.clevertec.news.model.entity.User;
 import ru.clevertec.news.repository.UserRepository;
@@ -31,7 +31,7 @@ import java.util.Base64;
 import static ru.clevertec.news.constant.Constant.*;
 
 /**
- * Реализация сервиса аутентификации
+ /* Реализация сервиса аутентификации
  */
 @Service
 public class AuthServiceImpl implements AuthService {
@@ -48,7 +48,7 @@ public class AuthServiceImpl implements AuthService {
     private String secretKey;
 
     /**
-     * Конструктор класса AuthServiceImpl.
+     /* Конструктор класса AuthServiceImpl.
      *
      * @param userRepository        репозитория пользователей
      * @param tokenProvider         провайдер токенов
@@ -63,44 +63,44 @@ public class AuthServiceImpl implements AuthService {
     }
 
     /**
-     * Метод для регистрации нового пользователя
+     /* Метод для регистрации нового пользователя
      *
      * @param dto объект SignUpDto, содержащий данные для регистрации
      * @return объект JwtDto, содержащий JWT-токен
      */
     @Transactional
     public JwtDto signUp(SignUpDto dto) {
-        if (userRepository.existsByLogin(dto.login())) {
+        if (userRepository.existsByLogin(dto.getLogin())) {
             logger.error("AuthService: Invalid Jwt with message: " + USERNAME_IS_EXIST);
             throw new InvalidJwtException(USERNAME_IS_EXIST);
         }
         logger.info("AuthService: check sign up");
 
-        String encryptedPassword = new BCryptPasswordEncoder().encode(dto.password());
-        User newUser = new User(dto.login(), encryptedPassword, dto.role());
+        String encryptedPassword = new BCryptPasswordEncoder().encode(dto.getPassword());
+        User newUser = new User(dto.getLogin(), encryptedPassword, dto.getRole());
         userRepository.save(newUser);
-        return buildJwt(dto.login(), dto.password());
+        return buildJwt(dto.getLogin(), dto.getPassword());
     }
 
     /**
-     * Метод для аутентификации пользователя
+     /* Метод для аутентификации пользователя
      *
      * @param dto объект SignInDto, содержащий данные для аутентификации
      * @return объект JwtDto, содержащий JWT-токен
      */
     @Override
     public JwtDto signIn(SignInDto dto) {
-        if (!userRepository.existsByLogin(dto.login())) {
+        if (!userRepository.existsByLogin(dto.getLogin())) {
             logger.error("AuthService: Invalid Jwt with message: " + USERNAME_NOT_EXIST);
             throw new InvalidJwtException(USERNAME_NOT_EXIST);
         }
         logger.info("AuthService: check sign in");
 
-        return buildJwt(dto.login(), dto.password());
+        return buildJwt(dto.getLogin(), dto.getPassword());
     }
 
     /**
-     * Проверка прав доступа пользователя по JWT токену.
+     * /* Проверка прав доступа пользователя по JWT токену.
      *
      * @param token  JWT токен
      * @param userId идентификатор пользователя
@@ -122,14 +122,14 @@ public class AuthServiceImpl implements AuthService {
                 logger.error("AuthService: No access error");
                 throw new NoAccessError();
             }
-            return (user.getRole().getRole().equals(getRole(token)) || user.getRole().getRole().equals(RoleName.ADMIN.getRole())) && user.getLogin().equals(getUsername(token));
+            return (user.getRole().equals(getRole(token)) || user.getRole().equals(RoleName.ADMIN)) && user.getLogin().equals(getUsername(token));
         }
         logger.error("AuthService: Invalid Jwt with message: " + INVALID_TOKEN_ERROR);
         throw new InvalidJwtException(INVALID_TOKEN_ERROR);
     }
 
     /**
-     * Проверяет валидность JWT токена.
+     /* Проверяет валидность JWT токена.
      *
      * @param token JWT токен
      * @return true, если токен валиден, иначе false
@@ -148,7 +148,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     /**
-     * Получает роль пользователя из JWT токена
+     /* Получает роль пользователя из JWT токена
      *
      * @param token JWT токен
      * @return роль пользователя
@@ -163,7 +163,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     /**
-     * Получает имя пользователя из JWT токена
+     /* Получает имя пользователя из JWT токена
      *
      * @param token JWT токен
      * @return имя пользователя
@@ -188,6 +188,6 @@ public class AuthServiceImpl implements AuthService {
         var usernamePassword = new UsernamePasswordAuthenticationToken(login, password);
         var authUser = authenticationManager.authenticate(usernamePassword);
         var accessToken = tokenProvider.generateAccessToken((User) authUser.getPrincipal());
-        return new JwtDto(accessToken);
+        return JwtDto.newBuilder().setAccessToken(accessToken).build();
     }
 }

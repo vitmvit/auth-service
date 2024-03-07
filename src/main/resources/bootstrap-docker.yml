@@ -6,5 +6,5 @@ spring:
   cloud:
     config:
       fail-fast: true
-      uri: http://localhost:8084
+      uri: http://config-service:8084
       enabled: true

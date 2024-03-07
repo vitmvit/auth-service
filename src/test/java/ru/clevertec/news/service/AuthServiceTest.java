@@ -5,10 +5,10 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import ru.clevertec.news.dto.auth.JwtDto;
-import ru.clevertec.news.dto.auth.SignInDto;
-import ru.clevertec.news.dto.auth.SignUpDto;
 import ru.clevertec.news.exception.InvalidJwtException;
+import ru.clevertec.news.model.dto.JwtDto;
+import ru.clevertec.news.model.dto.SignInDto;
+import ru.clevertec.news.model.dto.SignUpDto;
 import ru.clevertec.news.service.impl.AuthServiceImpl;
 import ru.clevertec.news.util.AuthTestBuilder;
 
@@ -68,7 +68,7 @@ public class AuthServiceTest {
     public void checkShouldReturnTrue() throws JsonProcessingException {
         Long userId = AuthTestBuilder.builder().build().buildUser().getId();
         String login = null;
-        String token = AuthTestBuilder.builder().build().buildJwtDto().accessToken();
+        String token = AuthTestBuilder.builder().build().buildJwtDto().getAccessToken();
 
         when(authService.check(token, userId, login)).thenReturn(true);
 
@@ -79,7 +79,7 @@ public class AuthServiceTest {
     public void checkShouldReturnFalse() throws JsonProcessingException {
         Long userId = AuthTestBuilder.builder().build().buildUser().getId();
         String login = null;
-        String token = AuthTestBuilder.builder().build().buildJwtDto().accessToken();
+        String token = AuthTestBuilder.builder().build().buildJwtDto().getAccessToken();
 
         when(authService.check(token, userId, login)).thenReturn(false);
 
