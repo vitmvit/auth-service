@@ -4,48 +4,52 @@
 package ru.clevertec.news.model.dto;
 
 public final class SignUpDtoProto {
-  private SignUpDtoProto() {}
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistryLite registry) {
-  }
-
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistry registry) {
-    registerAllExtensions(
-        (com.google.protobuf.ExtensionRegistryLite) registry);
-  }
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_ru_clevertec_news_model_dto_SignUpDto_descriptor;
-  static final 
+    static final com.google.protobuf.Descriptors.Descriptor
+            internal_static_ru_clevertec_news_model_dto_SignUpDto_descriptor;
+    static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_ru_clevertec_news_model_dto_SignUpDto_fieldAccessorTable;
+            internal_static_ru_clevertec_news_model_dto_SignUpDto_fieldAccessorTable;
+    private static com.google.protobuf.Descriptors.FileDescriptor
+            descriptor;
 
-  public static com.google.protobuf.Descriptors.FileDescriptor
-      getDescriptor() {
-    return descriptor;
-  }
-  private static  com.google.protobuf.Descriptors.FileDescriptor
-      descriptor;
-  static {
-    java.lang.String[] descriptorData = {
-      "\n\024SignUpDtoProto.proto\022\033ru.clevertec.new" +
-      "s.model.dto\"a\n\tSignUpDto\022\r\n\005login\030\001 \001(\t\022" +
-      "\020\n\010password\030\002 \001(\t\0223\n\004role\030\003 \001(\0162%.ru.cle" +
-      "vertec.news.model.dto.RoleName*?\n\010RoleNa" +
-      "me\022\t\n\005ADMIN\020\000\022\016\n\nJOURNALIST\020\001\022\016\n\nSUBSCRI" +
-      "BER\020\002\022\010\n\004USER\020\003B\002P\001b\006proto3"
-    };
-    descriptor = com.google.protobuf.Descriptors.FileDescriptor
-      .internalBuildGeneratedFileFrom(descriptorData,
-        new com.google.protobuf.Descriptors.FileDescriptor[] {
-        });
-    internal_static_ru_clevertec_news_model_dto_SignUpDto_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_ru_clevertec_news_model_dto_SignUpDto_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_ru_clevertec_news_model_dto_SignUpDto_descriptor,
-        new java.lang.String[] { "Login", "Password", "Role", });
-  }
+    static {
+        java.lang.String[] descriptorData = {
+                "\n\024SignUpDtoProto.proto\022\033ru.clevertec.new" +
+                        "s.model.dto\"a\n\tSignUpDto\022\r\n\005login\030\001 \001(\t\022" +
+                        "\020\n\010password\030\002 \001(\t\0223\n\004role\030\003 \001(\0162%.ru.cle" +
+                        "vertec.news.model.dto.RoleName*?\n\010RoleNa" +
+                        "me\022\t\n\005ADMIN\020\000\022\016\n\nJOURNALIST\020\001\022\016\n\nSUBSCRI" +
+                        "BER\020\002\022\010\n\004USER\020\003B\002P\001b\006proto3"
+        };
+        descriptor = com.google.protobuf.Descriptors.FileDescriptor
+                .internalBuildGeneratedFileFrom(descriptorData,
+                        new com.google.protobuf.Descriptors.FileDescriptor[]{
+                        });
+        internal_static_ru_clevertec_news_model_dto_SignUpDto_descriptor =
+                getDescriptor().getMessageTypes().get(0);
+        internal_static_ru_clevertec_news_model_dto_SignUpDto_fieldAccessorTable = new
+                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+                internal_static_ru_clevertec_news_model_dto_SignUpDto_descriptor,
+                new java.lang.String[]{"Login", "Password", "Role",});
+    }
 
-  // @@protoc_insertion_point(outer_class_scope)
+    private SignUpDtoProto() {
+    }
+
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistryLite registry) {
+    }
+
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistry registry) {
+        registerAllExtensions(
+                (com.google.protobuf.ExtensionRegistryLite) registry);
+    }
+
+    public static com.google.protobuf.Descriptors.FileDescriptor
+    getDescriptor() {
+        return descriptor;
+    }
+
+    // @@protoc_insertion_point(outer_class_scope)
 }

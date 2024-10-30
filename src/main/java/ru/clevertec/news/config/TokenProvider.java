@@ -31,10 +31,10 @@ public class TokenProvider {
      */
     public String generateAccessToken(User user) {
         try {
-            Algorithm algorithm = Algorithm.HMAC256(jwtSecret);
+            var algorithm = Algorithm.HMAC256(jwtSecret);
             return JWT.create()
-                    .withSubject(user.getUsername())
-                    .withClaim("username", user.getUsername())
+                    .withSubject(user.getLogin())
+                    .withClaim("username", user.getLogin())
                     .withClaim("role", user.getRole().toString())
                     .withExpiresAt(genAccessExpirationDate())
                     .sign(algorithm);

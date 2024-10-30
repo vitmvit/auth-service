@@ -1,14 +1,14 @@
 package ru.clevertec.news.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import ru.clevertec.news.exception.InvalidJwtException;
-import ru.clevertec.news.model.dto.JwtDto;
-import ru.clevertec.news.model.dto.SignInDto;
-import ru.clevertec.news.model.dto.SignUpDto;
+import ru.clevertec.news.model.entity.User;
+import ru.clevertec.news.repository.UserRepository;
 import ru.clevertec.news.service.impl.AuthServiceImpl;
 import ru.clevertec.news.util.AuthTestBuilder;
 
@@ -20,69 +20,76 @@ import static org.mockito.Mockito.when;
 public class AuthServiceTest {
 
     @Mock
+    private UserRepository userRepository;
+
+    @Mock
+    private TokenService tokenService;
+
+    @InjectMocks
     private AuthServiceImpl authService;
 
     @Test
     public void signUpSuccess() {
-        SignUpDto signUpDto = AuthTestBuilder.builder().build().buildSignUpDto();
-        JwtDto expected = AuthTestBuilder.builder().build().buildJwtDto();
+        var signUpDto = AuthTestBuilder.builder().build().buildSignUpDto();
+        var expectedJwt = AuthTestBuilder.builder().build().buildJwtDto();
+        var encryptedPassword = new BCryptPasswordEncoder().encode(signUpDto.getPassword());
+        var newUser = new User(signUpDto.getLogin(), encryptedPassword, signUpDto.getRole());
 
-        when(authService.signUp(signUpDto)).thenReturn(expected);
+        when(userRepository.existsByLogin(signUpDto.getLogin())).thenReturn(false);
+        when(userRepository.save(newUser)).thenReturn(newUser);
+        when(tokenService.buildJwt(signUpDto.getLogin(), signUpDto.getPassword())).thenReturn(expectedJwt);
 
         var actual = authService.signUp(signUpDto);
 
-        assertEquals(expected, actual);
+        assertEquals(expectedJwt, actual);
     }
 
     @Test
     public void signUpShouldReturnInvalidJwtException() {
-        SignUpDto signUpDto = AuthTestBuilder.builder().build().buildSignUpDto();
+        var signUpDto = AuthTestBuilder.builder().build().buildSignUpDto();
 
-        when(authService.signUp(signUpDto)).thenThrow(InvalidJwtException.class);
+        when(userRepository.existsByLogin(signUpDto.getLogin())).thenReturn(true);
 
         assertThrows(InvalidJwtException.class, () -> authService.signUp(signUpDto));
     }
 
     @Test
     public void signInSuccess() {
-        SignInDto signInDto = AuthTestBuilder.builder().build().buildSignInDto();
-        JwtDto expected = AuthTestBuilder.builder().build().buildJwtDto();
+        var signInDto = AuthTestBuilder.builder().build().buildSignInDto();
+        var expectedJwt = AuthTestBuilder.builder().build().buildJwtDto();
 
-        when(authService.signIn(signInDto)).thenReturn(expected);
+        when(userRepository.existsByLogin(signInDto.getLogin())).thenReturn(true);
+        when(tokenService.buildJwt(signInDto.getLogin(), signInDto.getPassword())).thenReturn(expectedJwt);
 
         var actual = authService.signIn(signInDto);
 
-        assertEquals(expected, actual);
+        assertEquals(expectedJwt, actual);
     }
 
     @Test
     public void signInShouldReturnInvalidJwtException() {
-        SignInDto signInDto = AuthTestBuilder.builder().build().buildSignInDto();
+        var signInDto = AuthTestBuilder.builder().build().buildSignInDto();
 
-        when(authService.signIn(signInDto)).thenThrow(InvalidJwtException.class);
+        when(userRepository.existsByLogin(signInDto.getLogin())).thenReturn(false);
 
         assertThrows(InvalidJwtException.class, () -> authService.signIn(signInDto));
     }
 
     @Test
-    public void checkShouldReturnTrue() throws JsonProcessingException {
-        Long userId = AuthTestBuilder.builder().build().buildUser().getId();
-        String login = null;
-        String token = AuthTestBuilder.builder().build().buildJwtDto().getAccessToken();
+    public void checkShouldReturnTrue() {
+        var token = AuthTestBuilder.builder().build().buildJwtDto().getAccessToken();
 
-        when(authService.check(token, userId, login)).thenReturn(true);
+        when(tokenService.checkToken(token)).thenReturn(true);
 
-        assertTrue(authService.check(token, userId, login));
+        assertTrue(authService.check(token));
     }
 
     @Test
-    public void checkShouldReturnFalse() throws JsonProcessingException {
-        Long userId = AuthTestBuilder.builder().build().buildUser().getId();
-        String login = null;
-        String token = AuthTestBuilder.builder().build().buildJwtDto().getAccessToken();
+    public void checkShouldReturnFalse() {
+        var token = AuthTestBuilder.builder().build().buildJwtDto().getAccessToken();
 
-        when(authService.check(token, userId, login)).thenReturn(false);
+        when(tokenService.checkToken(token)).thenReturn(false);
 
-        assertFalse(authService.check(token, userId, login));
+        assertFalse(authService.check(token));
     }
 }

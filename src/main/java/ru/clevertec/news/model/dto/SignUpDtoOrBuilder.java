@@ -4,41 +4,50 @@
 package ru.clevertec.news.model.dto;
 
 public interface SignUpDtoOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:ru.clevertec.news.model.dto.SignUpDto)
-    com.google.protobuf.MessageOrBuilder {
+        // @@protoc_insertion_point(interface_extends:ru.clevertec.news.model.dto.SignUpDto)
+        com.google.protobuf.MessageOrBuilder {
 
-  /**
-   * <code>string login = 1;</code>
-   * @return The login.
-   */
-  java.lang.String getLogin();
-  /**
-   * <code>string login = 1;</code>
-   * @return The bytes for login.
-   */
-  com.google.protobuf.ByteString
-      getLoginBytes();
+    /**
+     * <code>string login = 1;</code>
+     *
+     * @return The login.
+     */
+    java.lang.String getLogin();
 
-  /**
-   * <code>string password = 2;</code>
-   * @return The password.
-   */
-  java.lang.String getPassword();
-  /**
-   * <code>string password = 2;</code>
-   * @return The bytes for password.
-   */
-  com.google.protobuf.ByteString
-      getPasswordBytes();
+    /**
+     * <code>string login = 1;</code>
+     *
+     * @return The bytes for login.
+     */
+    com.google.protobuf.ByteString
+    getLoginBytes();
 
-  /**
-   * <code>.ru.clevertec.news.model.dto.RoleName role = 3;</code>
-   * @return The enum numeric value on the wire for role.
-   */
-  int getRoleValue();
-  /**
-   * <code>.ru.clevertec.news.model.dto.RoleName role = 3;</code>
-   * @return The role.
-   */
-  ru.clevertec.news.model.dto.RoleName getRole();
+    /**
+     * <code>string password = 2;</code>
+     *
+     * @return The password.
+     */
+    java.lang.String getPassword();
+
+    /**
+     * <code>string password = 2;</code>
+     *
+     * @return The bytes for password.
+     */
+    com.google.protobuf.ByteString
+    getPasswordBytes();
+
+    /**
+     * <code>.ru.clevertec.news.model.dto.RoleName role = 3;</code>
+     *
+     * @return The enum numeric value on the wire for role.
+     */
+    int getRoleValue();
+
+    /**
+     * <code>.ru.clevertec.news.model.dto.RoleName role = 3;</code>
+     *
+     * @return The role.
+     */
+    ru.clevertec.news.model.dto.RoleName getRole();
 }

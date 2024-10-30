@@ -40,11 +40,15 @@ These additional references should also help you:
 ADMIN, USER, JOURNALIST, SUBSCRIBER
 ```
 
+## Swagger
+
+http://localhost:8081/api/doc/swagger-ui/index.html
+
 ## Реализация
 
 ### AuthController
 
-#### POST запрос на создание нового пользователя:
+#### POST JwtDto signUp(@RequestBody @Valid SignUpDto dto:
 
 Request:
 
@@ -77,7 +81,7 @@ Response:
 }
 ```
 
-#### POST запрос на получение токена аутентификации:
+#### POST JwtDto signIn(@RequestBody @Valid SignInDto dto):
 
 Request:
 
@@ -109,25 +113,25 @@ Response:
 }
 ```
 
-#### POST запрос на проверку пользователя и его токена:
+#### POST boolean check(@RequestHeader(AUTHORIZATION_HEADER) String auth):
+
+Token in header Authorization
 
 Request:
 
 ```http request
-http://localhost:8081/api/auth/check?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJpaSIsInVzZXJuYW1lIjoiaWkiLCJyb2xlIjoiU1VCU0NSSUJFUiIsImV4cCI6MTcwOTQ3ODAzOH0.h2h3MJaAliZQDaf86x5b9PWQAHKvlkYy-TEwW2WiI8Q&login=ii
+http://localhost:8081/api/auth/check
 
 ```
 
-Response если токен действителен и пользователь имеет доступ к данному функционалу:
+Response если токен действителен:
 
 ```text
 true
 ```
 
-Response если токен не действителен или пользователь не имеет доступа к данному функционалу:
+Response если токен не действителен:
 
 ```text
 false
 ```
-
-

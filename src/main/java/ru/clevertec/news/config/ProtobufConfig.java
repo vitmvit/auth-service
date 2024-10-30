@@ -6,7 +6,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.converter.protobuf.ProtobufHttpMessageConverter;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Конфигурационный класс для настройки Protobuf.
@@ -21,7 +20,7 @@ public class ProtobufConfig {
      */
     @Bean
     ProtobufHttpMessageConverter protobufHttpMessageConverter() {
-        List<MediaType> supportedMediaTypes = new ArrayList();
+        var supportedMediaTypes = new ArrayList<MediaType>();
         supportedMediaTypes.add(MediaType.valueOf(MediaType.APPLICATION_JSON_VALUE));
         var converter = new ProtobufHttpMessageConverter();
         converter.setSupportedMediaTypes(supportedMediaTypes);

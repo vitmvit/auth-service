@@ -7,787 +7,857 @@ package ru.clevertec.news.model.dto;
  * Protobuf type {@code ru.clevertec.news.model.dto.SignUpDto}
  */
 public final class SignUpDto extends
-    com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:ru.clevertec.news.model.dto.SignUpDto)
-    SignUpDtoOrBuilder {
-private static final long serialVersionUID = 0L;
-  // Use SignUpDto.newBuilder() to construct.
-  private SignUpDto(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-    super(builder);
-  }
-  private SignUpDto() {
-    login_ = "";
-    password_ = "";
-    role_ = 0;
-  }
-
-  @java.lang.Override
-  @SuppressWarnings({"unused"})
-  protected java.lang.Object newInstance(
-      UnusedPrivateParameter unused) {
-    return new SignUpDto();
-  }
-
-  @java.lang.Override
-  public final com.google.protobuf.UnknownFieldSet
-  getUnknownFields() {
-    return this.unknownFields;
-  }
-  private SignUpDto(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            login_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            password_ = s;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            role_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
+        com.google.protobuf.GeneratedMessageV3 implements
+        // @@protoc_insertion_point(message_implements:ru.clevertec.news.model.dto.SignUpDto)
+        SignUpDtoOrBuilder {
+    public static final int LOGIN_FIELD_NUMBER = 1;
+    public static final int PASSWORD_FIELD_NUMBER = 2;
+    public static final int ROLE_FIELD_NUMBER = 3;
+    private static final long serialVersionUID = 0L;
+    // @@protoc_insertion_point(class_scope:ru.clevertec.news.model.dto.SignUpDto)
+    private static final ru.clevertec.news.model.dto.SignUpDto DEFAULT_INSTANCE;
+    private static final com.google.protobuf.Parser<SignUpDto>
+            PARSER = new com.google.protobuf.AbstractParser<SignUpDto>() {
+        @java.lang.Override
+        public SignUpDto parsePartialFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return new SignUpDto(input, extensionRegistry);
         }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
+    };
+
+    static {
+        DEFAULT_INSTANCE = new ru.clevertec.news.model.dto.SignUpDto();
     }
-  }
-  public static final com.google.protobuf.Descriptors.Descriptor
-      getDescriptor() {
-    return ru.clevertec.news.model.dto.SignUpDtoProto.internal_static_ru_clevertec_news_model_dto_SignUpDto_descriptor;
-  }
 
-  @java.lang.Override
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internalGetFieldAccessorTable() {
-    return ru.clevertec.news.model.dto.SignUpDtoProto.internal_static_ru_clevertec_news_model_dto_SignUpDto_fieldAccessorTable
-        .ensureFieldAccessorsInitialized(
-            ru.clevertec.news.model.dto.SignUpDto.class, ru.clevertec.news.model.dto.SignUpDto.Builder.class);
-  }
+    private volatile java.lang.Object login_;
+    private volatile java.lang.Object password_;
+    private int role_;
+    private byte memoizedIsInitialized = -1;
 
-  public static final int LOGIN_FIELD_NUMBER = 1;
-  private volatile java.lang.Object login_;
-  /**
-   * <code>string login = 1;</code>
-   * @return The login.
-   */
-  @java.lang.Override
-  public java.lang.String getLogin() {
-    java.lang.Object ref = login_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      login_ = s;
-      return s;
+    // Use SignUpDto.newBuilder() to construct.
+    private SignUpDto(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+        super(builder);
     }
-  }
-  /**
-   * <code>string login = 1;</code>
-   * @return The bytes for login.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getLoginBytes() {
-    java.lang.Object ref = login_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      login_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
+
+    private SignUpDto() {
+        login_ = "";
+        password_ = "";
+        role_ = 0;
     }
-  }
 
-  public static final int PASSWORD_FIELD_NUMBER = 2;
-  private volatile java.lang.Object password_;
-  /**
-   * <code>string password = 2;</code>
-   * @return The password.
-   */
-  @java.lang.Override
-  public java.lang.String getPassword() {
-    java.lang.Object ref = password_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      password_ = s;
-      return s;
+    private SignUpDto(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        this();
+        if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+        }
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+                com.google.protobuf.UnknownFieldSet.newBuilder();
+        try {
+            boolean done = false;
+            while (!done) {
+                int tag = input.readTag();
+                switch (tag) {
+                    case 0:
+                        done = true;
+                        break;
+                    case 10: {
+                        java.lang.String s = input.readStringRequireUtf8();
+
+                        login_ = s;
+                        break;
+                    }
+                    case 18: {
+                        java.lang.String s = input.readStringRequireUtf8();
+
+                        password_ = s;
+                        break;
+                    }
+                    case 24: {
+                        int rawValue = input.readEnum();
+
+                        role_ = rawValue;
+                        break;
+                    }
+                    default: {
+                        if (!parseUnknownField(
+                                input, unknownFields, extensionRegistry, tag)) {
+                            done = true;
+                        }
+                        break;
+                    }
+                }
+            }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(this);
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(
+                    e).setUnfinishedMessage(this);
+        } finally {
+            this.unknownFields = unknownFields.build();
+            makeExtensionsImmutable();
+        }
     }
-  }
-  /**
-   * <code>string password = 2;</code>
-   * @return The bytes for password.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getPasswordBytes() {
-    java.lang.Object ref = password_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      password_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
 
-  public static final int ROLE_FIELD_NUMBER = 3;
-  private int role_;
-  /**
-   * <code>.ru.clevertec.news.model.dto.RoleName role = 3;</code>
-   * @return The enum numeric value on the wire for role.
-   */
-  @java.lang.Override public int getRoleValue() {
-    return role_;
-  }
-  /**
-   * <code>.ru.clevertec.news.model.dto.RoleName role = 3;</code>
-   * @return The role.
-   */
-  @java.lang.Override public ru.clevertec.news.model.dto.RoleName getRole() {
-    @SuppressWarnings("deprecation")
-    ru.clevertec.news.model.dto.RoleName result = ru.clevertec.news.model.dto.RoleName.valueOf(role_);
-    return result == null ? ru.clevertec.news.model.dto.RoleName.UNRECOGNIZED : result;
-  }
-
-  private byte memoizedIsInitialized = -1;
-  @java.lang.Override
-  public final boolean isInitialized() {
-    byte isInitialized = memoizedIsInitialized;
-    if (isInitialized == 1) return true;
-    if (isInitialized == 0) return false;
-
-    memoizedIsInitialized = 1;
-    return true;
-  }
-
-  @java.lang.Override
-  public void writeTo(com.google.protobuf.CodedOutputStream output)
-                      throws java.io.IOException {
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(login_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, login_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(password_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, password_);
-    }
-    if (role_ != ru.clevertec.news.model.dto.RoleName.ADMIN.getNumber()) {
-      output.writeEnum(3, role_);
-    }
-    unknownFields.writeTo(output);
-  }
-
-  @java.lang.Override
-  public int getSerializedSize() {
-    int size = memoizedSize;
-    if (size != -1) return size;
-
-    size = 0;
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(login_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, login_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(password_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, password_);
-    }
-    if (role_ != ru.clevertec.news.model.dto.RoleName.ADMIN.getNumber()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(3, role_);
-    }
-    size += unknownFields.getSerializedSize();
-    memoizedSize = size;
-    return size;
-  }
-
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
-    if (obj == this) {
-     return true;
-    }
-    if (!(obj instanceof ru.clevertec.news.model.dto.SignUpDto)) {
-      return super.equals(obj);
-    }
-    ru.clevertec.news.model.dto.SignUpDto other = (ru.clevertec.news.model.dto.SignUpDto) obj;
-
-    if (!getLogin()
-        .equals(other.getLogin())) return false;
-    if (!getPassword()
-        .equals(other.getPassword())) return false;
-    if (role_ != other.role_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
-    return true;
-  }
-
-  @java.lang.Override
-  public int hashCode() {
-    if (memoizedHashCode != 0) {
-      return memoizedHashCode;
-    }
-    int hash = 41;
-    hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + LOGIN_FIELD_NUMBER;
-    hash = (53 * hash) + getLogin().hashCode();
-    hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
-    hash = (53 * hash) + getPassword().hashCode();
-    hash = (37 * hash) + ROLE_FIELD_NUMBER;
-    hash = (53 * hash) + role_;
-    hash = (29 * hash) + unknownFields.hashCode();
-    memoizedHashCode = hash;
-    return hash;
-  }
-
-  public static ru.clevertec.news.model.dto.SignUpDto parseFrom(
-      java.nio.ByteBuffer data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data);
-  }
-  public static ru.clevertec.news.model.dto.SignUpDto parseFrom(
-      java.nio.ByteBuffer data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data, extensionRegistry);
-  }
-  public static ru.clevertec.news.model.dto.SignUpDto parseFrom(
-      com.google.protobuf.ByteString data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data);
-  }
-  public static ru.clevertec.news.model.dto.SignUpDto parseFrom(
-      com.google.protobuf.ByteString data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data, extensionRegistry);
-  }
-  public static ru.clevertec.news.model.dto.SignUpDto parseFrom(byte[] data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data);
-  }
-  public static ru.clevertec.news.model.dto.SignUpDto parseFrom(
-      byte[] data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data, extensionRegistry);
-  }
-  public static ru.clevertec.news.model.dto.SignUpDto parseFrom(java.io.InputStream input)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageV3
-        .parseWithIOException(PARSER, input);
-  }
-  public static ru.clevertec.news.model.dto.SignUpDto parseFrom(
-      java.io.InputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageV3
-        .parseWithIOException(PARSER, input, extensionRegistry);
-  }
-  public static ru.clevertec.news.model.dto.SignUpDto parseDelimitedFrom(java.io.InputStream input)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageV3
-        .parseDelimitedWithIOException(PARSER, input);
-  }
-  public static ru.clevertec.news.model.dto.SignUpDto parseDelimitedFrom(
-      java.io.InputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageV3
-        .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-  }
-  public static ru.clevertec.news.model.dto.SignUpDto parseFrom(
-      com.google.protobuf.CodedInputStream input)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageV3
-        .parseWithIOException(PARSER, input);
-  }
-  public static ru.clevertec.news.model.dto.SignUpDto parseFrom(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageV3
-        .parseWithIOException(PARSER, input, extensionRegistry);
-  }
-
-  @java.lang.Override
-  public Builder newBuilderForType() { return newBuilder(); }
-  public static Builder newBuilder() {
-    return DEFAULT_INSTANCE.toBuilder();
-  }
-  public static Builder newBuilder(ru.clevertec.news.model.dto.SignUpDto prototype) {
-    return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-  }
-  @java.lang.Override
-  public Builder toBuilder() {
-    return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
-  }
-
-  @java.lang.Override
-  protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-    Builder builder = new Builder(parent);
-    return builder;
-  }
-  /**
-   * Protobuf type {@code ru.clevertec.news.model.dto.SignUpDto}
-   */
-  public static final class Builder extends
-      com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:ru.clevertec.news.model.dto.SignUpDto)
-      ru.clevertec.news.model.dto.SignUpDtoOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return ru.clevertec.news.model.dto.SignUpDtoProto.internal_static_ru_clevertec_news_model_dto_SignUpDto_descriptor;
+    getDescriptor() {
+        return ru.clevertec.news.model.dto.SignUpDtoProto.internal_static_ru_clevertec_news_model_dto_SignUpDto_descriptor;
+    }
+
+    public static ru.clevertec.news.model.dto.SignUpDto parseFrom(
+            java.nio.ByteBuffer data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+    }
+
+    public static ru.clevertec.news.model.dto.SignUpDto parseFrom(
+            java.nio.ByteBuffer data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static ru.clevertec.news.model.dto.SignUpDto parseFrom(
+            com.google.protobuf.ByteString data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+    }
+
+    public static ru.clevertec.news.model.dto.SignUpDto parseFrom(
+            com.google.protobuf.ByteString data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static ru.clevertec.news.model.dto.SignUpDto parseFrom(byte[] data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+    }
+
+    public static ru.clevertec.news.model.dto.SignUpDto parseFrom(
+            byte[] data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static ru.clevertec.news.model.dto.SignUpDto parseFrom(java.io.InputStream input)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+                .parseWithIOException(PARSER, input);
+    }
+
+    public static ru.clevertec.news.model.dto.SignUpDto parseFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+                .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static ru.clevertec.news.model.dto.SignUpDto parseDelimitedFrom(java.io.InputStream input)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+                .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static ru.clevertec.news.model.dto.SignUpDto parseDelimitedFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+                .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static ru.clevertec.news.model.dto.SignUpDto parseFrom(
+            com.google.protobuf.CodedInputStream input)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+                .parseWithIOException(PARSER, input);
+    }
+
+    public static ru.clevertec.news.model.dto.SignUpDto parseFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+                .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(ru.clevertec.news.model.dto.SignUpDto prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    public static ru.clevertec.news.model.dto.SignUpDto getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+    }
+
+    public static com.google.protobuf.Parser<SignUpDto> parser() {
+        return PARSER;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+            UnusedPrivateParameter unused) {
+        return new SignUpDto();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+        return this.unknownFields;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return ru.clevertec.news.model.dto.SignUpDtoProto.internal_static_ru_clevertec_news_model_dto_SignUpDto_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              ru.clevertec.news.model.dto.SignUpDto.class, ru.clevertec.news.model.dto.SignUpDto.Builder.class);
+    internalGetFieldAccessorTable() {
+        return ru.clevertec.news.model.dto.SignUpDtoProto.internal_static_ru_clevertec_news_model_dto_SignUpDto_fieldAccessorTable
+                .ensureFieldAccessorsInitialized(
+                        ru.clevertec.news.model.dto.SignUpDto.class, ru.clevertec.news.model.dto.SignUpDto.Builder.class);
     }
 
-    // Construct using ru.clevertec.news.model.dto.SignUpDto.newBuilder()
-    private Builder() {
-      maybeForceBuilderInitialization();
-    }
-
-    private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
-    }
-    @java.lang.Override
-    public Builder clear() {
-      super.clear();
-      login_ = "";
-
-      password_ = "";
-
-      role_ = 0;
-
-      return this;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Descriptors.Descriptor
-        getDescriptorForType() {
-      return ru.clevertec.news.model.dto.SignUpDtoProto.internal_static_ru_clevertec_news_model_dto_SignUpDto_descriptor;
-    }
-
-    @java.lang.Override
-    public ru.clevertec.news.model.dto.SignUpDto getDefaultInstanceForType() {
-      return ru.clevertec.news.model.dto.SignUpDto.getDefaultInstance();
-    }
-
-    @java.lang.Override
-    public ru.clevertec.news.model.dto.SignUpDto build() {
-      ru.clevertec.news.model.dto.SignUpDto result = buildPartial();
-      if (!result.isInitialized()) {
-        throw newUninitializedMessageException(result);
-      }
-      return result;
-    }
-
-    @java.lang.Override
-    public ru.clevertec.news.model.dto.SignUpDto buildPartial() {
-      ru.clevertec.news.model.dto.SignUpDto result = new ru.clevertec.news.model.dto.SignUpDto(this);
-      result.login_ = login_;
-      result.password_ = password_;
-      result.role_ = role_;
-      onBuilt();
-      return result;
-    }
-
-    @java.lang.Override
-    public Builder clone() {
-      return super.clone();
-    }
-    @java.lang.Override
-    public Builder setField(
-        com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
-      return super.setField(field, value);
-    }
-    @java.lang.Override
-    public Builder clearField(
-        com.google.protobuf.Descriptors.FieldDescriptor field) {
-      return super.clearField(field);
-    }
-    @java.lang.Override
-    public Builder clearOneof(
-        com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-      return super.clearOneof(oneof);
-    }
-    @java.lang.Override
-    public Builder setRepeatedField(
-        com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, java.lang.Object value) {
-      return super.setRepeatedField(field, index, value);
-    }
-    @java.lang.Override
-    public Builder addRepeatedField(
-        com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
-      return super.addRepeatedField(field, value);
-    }
-    @java.lang.Override
-    public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof ru.clevertec.news.model.dto.SignUpDto) {
-        return mergeFrom((ru.clevertec.news.model.dto.SignUpDto)other);
-      } else {
-        super.mergeFrom(other);
-        return this;
-      }
-    }
-
-    public Builder mergeFrom(ru.clevertec.news.model.dto.SignUpDto other) {
-      if (other == ru.clevertec.news.model.dto.SignUpDto.getDefaultInstance()) return this;
-      if (!other.getLogin().isEmpty()) {
-        login_ = other.login_;
-        onChanged();
-      }
-      if (!other.getPassword().isEmpty()) {
-        password_ = other.password_;
-        onChanged();
-      }
-      if (other.role_ != 0) {
-        setRoleValue(other.getRoleValue());
-      }
-      this.mergeUnknownFields(other.unknownFields);
-      onChanged();
-      return this;
-    }
-
-    @java.lang.Override
-    public final boolean isInitialized() {
-      return true;
-    }
-
-    @java.lang.Override
-    public Builder mergeFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      ru.clevertec.news.model.dto.SignUpDto parsedMessage = null;
-      try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (ru.clevertec.news.model.dto.SignUpDto) e.getUnfinishedMessage();
-        throw e.unwrapIOException();
-      } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
-      return this;
-    }
-
-    private java.lang.Object login_ = "";
     /**
      * <code>string login = 1;</code>
+     *
      * @return The login.
      */
+    @java.lang.Override
     public java.lang.String getLogin() {
-      java.lang.Object ref = login_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        login_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+        java.lang.Object ref = login_;
+        if (ref instanceof java.lang.String) {
+            return (java.lang.String) ref;
+        } else {
+            com.google.protobuf.ByteString bs =
+                    (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            login_ = s;
+            return s;
+        }
     }
+
     /**
      * <code>string login = 1;</code>
+     *
      * @return The bytes for login.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
-        getLoginBytes() {
-      java.lang.Object ref = login_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        login_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string login = 1;</code>
-     * @param value The login to set.
-     * @return This builder for chaining.
-     */
-    public Builder setLogin(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      login_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string login = 1;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearLogin() {
-      
-      login_ = getDefaultInstance().getLogin();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string login = 1;</code>
-     * @param value The bytes for login to set.
-     * @return This builder for chaining.
-     */
-    public Builder setLoginBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      login_ = value;
-      onChanged();
-      return this;
+    getLoginBytes() {
+        java.lang.Object ref = login_;
+        if (ref instanceof java.lang.String) {
+            com.google.protobuf.ByteString b =
+                    com.google.protobuf.ByteString.copyFromUtf8(
+                            (java.lang.String) ref);
+            login_ = b;
+            return b;
+        } else {
+            return (com.google.protobuf.ByteString) ref;
+        }
     }
 
-    private java.lang.Object password_ = "";
     /**
      * <code>string password = 2;</code>
+     *
      * @return The password.
      */
+    @java.lang.Override
     public java.lang.String getPassword() {
-      java.lang.Object ref = password_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        password_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string password = 2;</code>
-     * @return The bytes for password.
-     */
-    public com.google.protobuf.ByteString
-        getPasswordBytes() {
-      java.lang.Object ref = password_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        password_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string password = 2;</code>
-     * @param value The password to set.
-     * @return This builder for chaining.
-     */
-    public Builder setPassword(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      password_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string password = 2;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearPassword() {
-      
-      password_ = getDefaultInstance().getPassword();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string password = 2;</code>
-     * @param value The bytes for password to set.
-     * @return This builder for chaining.
-     */
-    public Builder setPasswordBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      password_ = value;
-      onChanged();
-      return this;
+        java.lang.Object ref = password_;
+        if (ref instanceof java.lang.String) {
+            return (java.lang.String) ref;
+        } else {
+            com.google.protobuf.ByteString bs =
+                    (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            password_ = s;
+            return s;
+        }
     }
 
-    private int role_ = 0;
+    /**
+     * <code>string password = 2;</code>
+     *
+     * @return The bytes for password.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+    getPasswordBytes() {
+        java.lang.Object ref = password_;
+        if (ref instanceof java.lang.String) {
+            com.google.protobuf.ByteString b =
+                    com.google.protobuf.ByteString.copyFromUtf8(
+                            (java.lang.String) ref);
+            password_ = b;
+            return b;
+        } else {
+            return (com.google.protobuf.ByteString) ref;
+        }
+    }
+
     /**
      * <code>.ru.clevertec.news.model.dto.RoleName role = 3;</code>
+     *
      * @return The enum numeric value on the wire for role.
      */
-    @java.lang.Override public int getRoleValue() {
-      return role_;
+    @java.lang.Override
+    public int getRoleValue() {
+        return role_;
     }
+
     /**
      * <code>.ru.clevertec.news.model.dto.RoleName role = 3;</code>
-     * @param value The enum numeric value on the wire for role to set.
-     * @return This builder for chaining.
-     */
-    public Builder setRoleValue(int value) {
-      
-      role_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.ru.clevertec.news.model.dto.RoleName role = 3;</code>
+     *
      * @return The role.
      */
     @java.lang.Override
     public ru.clevertec.news.model.dto.RoleName getRole() {
-      @SuppressWarnings("deprecation")
-      ru.clevertec.news.model.dto.RoleName result = ru.clevertec.news.model.dto.RoleName.valueOf(role_);
-      return result == null ? ru.clevertec.news.model.dto.RoleName.UNRECOGNIZED : result;
+        @SuppressWarnings("deprecation")
+        ru.clevertec.news.model.dto.RoleName result = ru.clevertec.news.model.dto.RoleName.valueOf(role_);
+        return result == null ? ru.clevertec.news.model.dto.RoleName.UNRECOGNIZED : result;
     }
+
+    @java.lang.Override
+    public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
+
+        memoizedIsInitialized = 1;
+        return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+            throws java.io.IOException {
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(login_)) {
+            com.google.protobuf.GeneratedMessageV3.writeString(output, 1, login_);
+        }
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(password_)) {
+            com.google.protobuf.GeneratedMessageV3.writeString(output, 2, password_);
+        }
+        if (role_ != ru.clevertec.news.model.dto.RoleName.ADMIN.getNumber()) {
+            output.writeEnum(3, role_);
+        }
+        unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+        int size = memoizedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(login_)) {
+            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, login_);
+        }
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(password_)) {
+            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, password_);
+        }
+        if (role_ != ru.clevertec.news.model.dto.RoleName.ADMIN.getNumber()) {
+            size += com.google.protobuf.CodedOutputStream
+                    .computeEnumSize(3, role_);
+        }
+        size += unknownFields.getSerializedSize();
+        memoizedSize = size;
+        return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof ru.clevertec.news.model.dto.SignUpDto)) {
+            return super.equals(obj);
+        }
+        ru.clevertec.news.model.dto.SignUpDto other = (ru.clevertec.news.model.dto.SignUpDto) obj;
+
+        if (!getLogin()
+                .equals(other.getLogin())) return false;
+        if (!getPassword()
+                .equals(other.getPassword())) return false;
+        if (role_ != other.role_) return false;
+        if (!unknownFields.equals(other.unknownFields)) return false;
+        return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+        if (memoizedHashCode != 0) {
+            return memoizedHashCode;
+        }
+        int hash = 41;
+        hash = (19 * hash) + getDescriptor().hashCode();
+        hash = (37 * hash) + LOGIN_FIELD_NUMBER;
+        hash = (53 * hash) + getLogin().hashCode();
+        hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
+        hash = (53 * hash) + getPassword().hashCode();
+        hash = (37 * hash) + ROLE_FIELD_NUMBER;
+        hash = (53 * hash) + role_;
+        hash = (29 * hash) + unknownFields.hashCode();
+        memoizedHashCode = hash;
+        return hash;
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() {
+        return newBuilder();
+    }
+
+    @java.lang.Override
+    public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+                ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SignUpDto> getParserForType() {
+        return PARSER;
+    }
+
+    @java.lang.Override
+    public ru.clevertec.news.model.dto.SignUpDto getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+    }
+
     /**
-     * <code>.ru.clevertec.news.model.dto.RoleName role = 3;</code>
-     * @param value The role to set.
-     * @return This builder for chaining.
+     * Protobuf type {@code ru.clevertec.news.model.dto.SignUpDto}
      */
-    public Builder setRole(ru.clevertec.news.model.dto.RoleName value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      
-      role_ = value.getNumber();
-      onChanged();
-      return this;
+    public static final class Builder extends
+            com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+            // @@protoc_insertion_point(builder_implements:ru.clevertec.news.model.dto.SignUpDto)
+            ru.clevertec.news.model.dto.SignUpDtoOrBuilder {
+        private java.lang.Object login_ = "";
+        private java.lang.Object password_ = "";
+        private int role_ = 0;
+
+        // Construct using ru.clevertec.news.model.dto.SignUpDto.newBuilder()
+        private Builder() {
+            maybeForceBuilderInitialization();
+        }
+
+        private Builder(
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            super(parent);
+            maybeForceBuilderInitialization();
+        }
+
+        public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+            return ru.clevertec.news.model.dto.SignUpDtoProto.internal_static_ru_clevertec_news_model_dto_SignUpDto_descriptor;
+        }
+
+        @java.lang.Override
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+            return ru.clevertec.news.model.dto.SignUpDtoProto.internal_static_ru_clevertec_news_model_dto_SignUpDto_fieldAccessorTable
+                    .ensureFieldAccessorsInitialized(
+                            ru.clevertec.news.model.dto.SignUpDto.class, ru.clevertec.news.model.dto.SignUpDto.Builder.class);
+        }
+
+        private void maybeForceBuilderInitialization() {
+            if (com.google.protobuf.GeneratedMessageV3
+                    .alwaysUseFieldBuilders) {
+            }
+        }
+
+        @java.lang.Override
+        public Builder clear() {
+            super.clear();
+            login_ = "";
+
+            password_ = "";
+
+            role_ = 0;
+
+            return this;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Descriptors.Descriptor
+        getDescriptorForType() {
+            return ru.clevertec.news.model.dto.SignUpDtoProto.internal_static_ru_clevertec_news_model_dto_SignUpDto_descriptor;
+        }
+
+        @java.lang.Override
+        public ru.clevertec.news.model.dto.SignUpDto getDefaultInstanceForType() {
+            return ru.clevertec.news.model.dto.SignUpDto.getDefaultInstance();
+        }
+
+        @java.lang.Override
+        public ru.clevertec.news.model.dto.SignUpDto build() {
+            ru.clevertec.news.model.dto.SignUpDto result = buildPartial();
+            if (!result.isInitialized()) {
+                throw newUninitializedMessageException(result);
+            }
+            return result;
+        }
+
+        @java.lang.Override
+        public ru.clevertec.news.model.dto.SignUpDto buildPartial() {
+            ru.clevertec.news.model.dto.SignUpDto result = new ru.clevertec.news.model.dto.SignUpDto(this);
+            result.login_ = login_;
+            result.password_ = password_;
+            result.role_ = role_;
+            onBuilt();
+            return result;
+        }
+
+        @java.lang.Override
+        public Builder clone() {
+            return super.clone();
+        }
+
+        @java.lang.Override
+        public Builder setField(
+                com.google.protobuf.Descriptors.FieldDescriptor field,
+                java.lang.Object value) {
+            return super.setField(field, value);
+        }
+
+        @java.lang.Override
+        public Builder clearField(
+                com.google.protobuf.Descriptors.FieldDescriptor field) {
+            return super.clearField(field);
+        }
+
+        @java.lang.Override
+        public Builder clearOneof(
+                com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+            return super.clearOneof(oneof);
+        }
+
+        @java.lang.Override
+        public Builder setRepeatedField(
+                com.google.protobuf.Descriptors.FieldDescriptor field,
+                int index, java.lang.Object value) {
+            return super.setRepeatedField(field, index, value);
+        }
+
+        @java.lang.Override
+        public Builder addRepeatedField(
+                com.google.protobuf.Descriptors.FieldDescriptor field,
+                java.lang.Object value) {
+            return super.addRepeatedField(field, value);
+        }
+
+        @java.lang.Override
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+            if (other instanceof ru.clevertec.news.model.dto.SignUpDto) {
+                return mergeFrom((ru.clevertec.news.model.dto.SignUpDto) other);
+            } else {
+                super.mergeFrom(other);
+                return this;
+            }
+        }
+
+        public Builder mergeFrom(ru.clevertec.news.model.dto.SignUpDto other) {
+            if (other == ru.clevertec.news.model.dto.SignUpDto.getDefaultInstance()) return this;
+            if (!other.getLogin().isEmpty()) {
+                login_ = other.login_;
+                onChanged();
+            }
+            if (!other.getPassword().isEmpty()) {
+                password_ = other.password_;
+                onChanged();
+            }
+            if (other.role_ != 0) {
+                setRoleValue(other.getRoleValue());
+            }
+            this.mergeUnknownFields(other.unknownFields);
+            onChanged();
+            return this;
+        }
+
+        @java.lang.Override
+        public final boolean isInitialized() {
+            return true;
+        }
+
+        @java.lang.Override
+        public Builder mergeFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            ru.clevertec.news.model.dto.SignUpDto parsedMessage = null;
+            try {
+                parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                parsedMessage = (ru.clevertec.news.model.dto.SignUpDto) e.getUnfinishedMessage();
+                throw e.unwrapIOException();
+            } finally {
+                if (parsedMessage != null) {
+                    mergeFrom(parsedMessage);
+                }
+            }
+            return this;
+        }
+
+        /**
+         * <code>string login = 1;</code>
+         *
+         * @return The login.
+         */
+        public java.lang.String getLogin() {
+            java.lang.Object ref = login_;
+            if (!(ref instanceof java.lang.String)) {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                login_ = s;
+                return s;
+            } else {
+                return (java.lang.String) ref;
+            }
+        }
+
+        /**
+         * <code>string login = 1;</code>
+         *
+         * @param value The login to set.
+         * @return This builder for chaining.
+         */
+        public Builder setLogin(
+                java.lang.String value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            login_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>string login = 1;</code>
+         *
+         * @return The bytes for login.
+         */
+        public com.google.protobuf.ByteString
+        getLoginBytes() {
+            java.lang.Object ref = login_;
+            if (ref instanceof String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (java.lang.String) ref);
+                login_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        /**
+         * <code>string login = 1;</code>
+         *
+         * @param value The bytes for login to set.
+         * @return This builder for chaining.
+         */
+        public Builder setLoginBytes(
+                com.google.protobuf.ByteString value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            checkByteStringIsUtf8(value);
+
+            login_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>string login = 1;</code>
+         *
+         * @return This builder for chaining.
+         */
+        public Builder clearLogin() {
+
+            login_ = getDefaultInstance().getLogin();
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>string password = 2;</code>
+         *
+         * @return The password.
+         */
+        public java.lang.String getPassword() {
+            java.lang.Object ref = password_;
+            if (!(ref instanceof java.lang.String)) {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                password_ = s;
+                return s;
+            } else {
+                return (java.lang.String) ref;
+            }
+        }
+
+        /**
+         * <code>string password = 2;</code>
+         *
+         * @param value The password to set.
+         * @return This builder for chaining.
+         */
+        public Builder setPassword(
+                java.lang.String value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            password_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>string password = 2;</code>
+         *
+         * @return The bytes for password.
+         */
+        public com.google.protobuf.ByteString
+        getPasswordBytes() {
+            java.lang.Object ref = password_;
+            if (ref instanceof String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (java.lang.String) ref);
+                password_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        /**
+         * <code>string password = 2;</code>
+         *
+         * @param value The bytes for password to set.
+         * @return This builder for chaining.
+         */
+        public Builder setPasswordBytes(
+                com.google.protobuf.ByteString value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            checkByteStringIsUtf8(value);
+
+            password_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>string password = 2;</code>
+         *
+         * @return This builder for chaining.
+         */
+        public Builder clearPassword() {
+
+            password_ = getDefaultInstance().getPassword();
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>.ru.clevertec.news.model.dto.RoleName role = 3;</code>
+         *
+         * @return The enum numeric value on the wire for role.
+         */
+        @java.lang.Override
+        public int getRoleValue() {
+            return role_;
+        }
+
+        /**
+         * <code>.ru.clevertec.news.model.dto.RoleName role = 3;</code>
+         *
+         * @param value The enum numeric value on the wire for role to set.
+         * @return This builder for chaining.
+         */
+        public Builder setRoleValue(int value) {
+
+            role_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>.ru.clevertec.news.model.dto.RoleName role = 3;</code>
+         *
+         * @return The role.
+         */
+        @java.lang.Override
+        public ru.clevertec.news.model.dto.RoleName getRole() {
+            @SuppressWarnings("deprecation")
+            ru.clevertec.news.model.dto.RoleName result = ru.clevertec.news.model.dto.RoleName.valueOf(role_);
+            return result == null ? ru.clevertec.news.model.dto.RoleName.UNRECOGNIZED : result;
+        }
+
+        /**
+         * <code>.ru.clevertec.news.model.dto.RoleName role = 3;</code>
+         *
+         * @param value The role to set.
+         * @return This builder for chaining.
+         */
+        public Builder setRole(ru.clevertec.news.model.dto.RoleName value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            role_ = value.getNumber();
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>.ru.clevertec.news.model.dto.RoleName role = 3;</code>
+         *
+         * @return This builder for chaining.
+         */
+        public Builder clearRole() {
+
+            role_ = 0;
+            onChanged();
+            return this;
+        }
+
+        @java.lang.Override
+        public final Builder setUnknownFields(
+                final com.google.protobuf.UnknownFieldSet unknownFields) {
+            return super.setUnknownFields(unknownFields);
+        }
+
+        @java.lang.Override
+        public final Builder mergeUnknownFields(
+                final com.google.protobuf.UnknownFieldSet unknownFields) {
+            return super.mergeUnknownFields(unknownFields);
+        }
+
+
+        // @@protoc_insertion_point(builder_scope:ru.clevertec.news.model.dto.SignUpDto)
     }
-    /**
-     * <code>.ru.clevertec.news.model.dto.RoleName role = 3;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearRole() {
-      
-      role_ = 0;
-      onChanged();
-      return this;
-    }
-    @java.lang.Override
-    public final Builder setUnknownFields(
-        final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.setUnknownFields(unknownFields);
-    }
-
-    @java.lang.Override
-    public final Builder mergeUnknownFields(
-        final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.mergeUnknownFields(unknownFields);
-    }
-
-
-    // @@protoc_insertion_point(builder_scope:ru.clevertec.news.model.dto.SignUpDto)
-  }
-
-  // @@protoc_insertion_point(class_scope:ru.clevertec.news.model.dto.SignUpDto)
-  private static final ru.clevertec.news.model.dto.SignUpDto DEFAULT_INSTANCE;
-  static {
-    DEFAULT_INSTANCE = new ru.clevertec.news.model.dto.SignUpDto();
-  }
-
-  public static ru.clevertec.news.model.dto.SignUpDto getDefaultInstance() {
-    return DEFAULT_INSTANCE;
-  }
-
-  private static final com.google.protobuf.Parser<SignUpDto>
-      PARSER = new com.google.protobuf.AbstractParser<SignUpDto>() {
-    @java.lang.Override
-    public SignUpDto parsePartialFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SignUpDto(input, extensionRegistry);
-    }
-  };
-
-  public static com.google.protobuf.Parser<SignUpDto> parser() {
-    return PARSER;
-  }
-
-  @java.lang.Override
-  public com.google.protobuf.Parser<SignUpDto> getParserForType() {
-    return PARSER;
-  }
-
-  @java.lang.Override
-  public ru.clevertec.news.model.dto.SignUpDto getDefaultInstanceForType() {
-    return DEFAULT_INSTANCE;
-  }
 
 }
 

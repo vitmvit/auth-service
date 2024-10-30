@@ -1,10 +1,6 @@
 package ru.clevertec.news.util;
 
 import lombok.Builder;
-//import ru.clevertec.news.dto.auth.JwtDto;
-//import ru.clevertec.news.dto.auth.SignInDto;
-//import ru.clevertec.news.dto.auth.SignUpDto;
-//import ru.clevertec.news.dto.constant.RoleName;
 import ru.clevertec.news.model.dto.JwtDto;
 import ru.clevertec.news.model.dto.RoleName;
 import ru.clevertec.news.model.dto.SignInDto;

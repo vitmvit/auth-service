@@ -12,14 +12,13 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import ru.clevertec.news.exception.InvalidJwtException;
-import ru.clevertec.news.model.dto.SignInDto;
-import ru.clevertec.news.model.dto.SignUpDto;
 import ru.clevertec.news.service.AuthService;
 import ru.clevertec.news.util.AuthTestBuilder;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static ru.clevertec.news.constant.Constant.AUTHORIZATION_HEADER;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -33,24 +32,23 @@ public class AuthControllerTest {
 
     @Test
     void signUpSuccess() throws Exception {
-        SignUpDto signUpDto = AuthTestBuilder.builder().build().buildSignUpDto();
+        var signUpDto = AuthTestBuilder.builder().build().buildSignUpDto();
 
         mockMvc.perform(MockMvcRequestBuilders.post("/api/auth/signUp")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new JsonFormat().printToString(signUpDto)))
-                .andExpect(MockMvcResultMatchers.status().isOk());
+                .andExpect(MockMvcResultMatchers.status().isCreated());
     }
 
     @Test
     public void signUpShouldReturnInvalidJwtException() throws Exception {
-        SignUpDto signUpDto = AuthTestBuilder.builder().build().buildSignUpDto();
-
-        String signUpDtoJson = new JsonFormat().printToString(signUpDto);
+        var signUpDto = AuthTestBuilder.builder().build().buildSignUpDto();
+        var signUpDtoJson = new JsonFormat().printToString(signUpDto);
 
         mockMvc.perform(MockMvcRequestBuilders.post("/api/auth/signUp")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(signUpDtoJson))
-                .andExpect(MockMvcResultMatchers.status().isOk());
+                .andExpect(MockMvcResultMatchers.status().isCreated());
 
         mockMvc.perform(MockMvcRequestBuilders.post("/api/auth/signUp")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -60,13 +58,13 @@ public class AuthControllerTest {
 
     @Test
     public void signInSuccess() throws Exception {
-        SignUpDto signUpDto = AuthTestBuilder.builder().build().buildSignUpDto();
-        SignInDto signInDto = AuthTestBuilder.builder().build().buildSignInDto();
+        var signUpDto = AuthTestBuilder.builder().build().buildSignUpDto();
+        var signInDto = AuthTestBuilder.builder().build().buildSignInDto();
 
         mockMvc.perform(MockMvcRequestBuilders.post("/api/auth/signUp")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new JsonFormat().printToString(signUpDto)))
-                .andExpect(MockMvcResultMatchers.status().isOk());
+                .andExpect(MockMvcResultMatchers.status().isCreated());
 
         when(authService.signUp(any())).thenReturn(AuthTestBuilder.builder().build().buildJwtDto());
 
@@ -78,7 +76,7 @@ public class AuthControllerTest {
 
     @Test
     public void signInSuccessShouldReturnInvalidJwtException() throws Exception {
-        SignInDto signInDto = AuthTestBuilder.builder().build().buildSignInDto();
+        var signInDto = AuthTestBuilder.builder().build().buildSignInDto();
 
         mockMvc.perform(MockMvcRequestBuilders.post("/api/auth/signIn")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -88,14 +86,10 @@ public class AuthControllerTest {
 
     @Test
     public void checkShouldReturnStatus200() throws Exception {
-        Long userId = AuthTestBuilder.builder().build().buildUser().getId();
-        String login = null;
-        String token = AuthTestBuilder.builder().build().buildJwtDto().getAccessToken();
+        var token = AuthTestBuilder.builder().build().buildJwtDto().getAccessToken();
 
         mockMvc.perform(MockMvcRequestBuilders.post("/api/auth/check")
-                        .param("token", token)
-                        .param("userId", String.valueOf(userId))
-                        .param("login", login)
+                        .header(AUTHORIZATION_HEADER, token)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }

@@ -7,553 +7,596 @@ package ru.clevertec.news.model.dto;
  * Protobuf type {@code ru.clevertec.news.model.dto.JwtDto}
  */
 public final class JwtDto extends
-    com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:ru.clevertec.news.model.dto.JwtDto)
-    JwtDtoOrBuilder {
-private static final long serialVersionUID = 0L;
-  // Use JwtDto.newBuilder() to construct.
-  private JwtDto(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-    super(builder);
-  }
-  private JwtDto() {
-    accessToken_ = "";
-  }
-
-  @java.lang.Override
-  @SuppressWarnings({"unused"})
-  protected java.lang.Object newInstance(
-      UnusedPrivateParameter unused) {
-    return new JwtDto();
-  }
-
-  @java.lang.Override
-  public final com.google.protobuf.UnknownFieldSet
-  getUnknownFields() {
-    return this.unknownFields;
-  }
-  private JwtDto(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            accessToken_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
+        com.google.protobuf.GeneratedMessageV3 implements
+        // @@protoc_insertion_point(message_implements:ru.clevertec.news.model.dto.JwtDto)
+        JwtDtoOrBuilder {
+    public static final int ACCESS_TOKEN_FIELD_NUMBER = 1;
+    private static final long serialVersionUID = 0L;
+    // @@protoc_insertion_point(class_scope:ru.clevertec.news.model.dto.JwtDto)
+    private static final ru.clevertec.news.model.dto.JwtDto DEFAULT_INSTANCE;
+    private static final com.google.protobuf.Parser<JwtDto>
+            PARSER = new com.google.protobuf.AbstractParser<JwtDto>() {
+        @java.lang.Override
+        public JwtDto parsePartialFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return new JwtDto(input, extensionRegistry);
         }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
+    };
+
+    static {
+        DEFAULT_INSTANCE = new ru.clevertec.news.model.dto.JwtDto();
     }
-  }
-  public static final com.google.protobuf.Descriptors.Descriptor
-      getDescriptor() {
-    return ru.clevertec.news.model.dto.JwtDtoProto.internal_static_ru_clevertec_news_model_dto_JwtDto_descriptor;
-  }
 
-  @java.lang.Override
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internalGetFieldAccessorTable() {
-    return ru.clevertec.news.model.dto.JwtDtoProto.internal_static_ru_clevertec_news_model_dto_JwtDto_fieldAccessorTable
-        .ensureFieldAccessorsInitialized(
-            ru.clevertec.news.model.dto.JwtDto.class, ru.clevertec.news.model.dto.JwtDto.Builder.class);
-  }
+    private volatile java.lang.Object accessToken_;
+    private byte memoizedIsInitialized = -1;
 
-  public static final int ACCESS_TOKEN_FIELD_NUMBER = 1;
-  private volatile java.lang.Object accessToken_;
-  /**
-   * <code>string access_token = 1;</code>
-   * @return The accessToken.
-   */
-  @java.lang.Override
-  public java.lang.String getAccessToken() {
-    java.lang.Object ref = accessToken_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      accessToken_ = s;
-      return s;
+    // Use JwtDto.newBuilder() to construct.
+    private JwtDto(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+        super(builder);
     }
-  }
-  /**
-   * <code>string access_token = 1;</code>
-   * @return The bytes for accessToken.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getAccessTokenBytes() {
-    java.lang.Object ref = accessToken_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      accessToken_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
+
+    private JwtDto() {
+        accessToken_ = "";
     }
-  }
 
-  private byte memoizedIsInitialized = -1;
-  @java.lang.Override
-  public final boolean isInitialized() {
-    byte isInitialized = memoizedIsInitialized;
-    if (isInitialized == 1) return true;
-    if (isInitialized == 0) return false;
+    private JwtDto(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        this();
+        if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+        }
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+                com.google.protobuf.UnknownFieldSet.newBuilder();
+        try {
+            boolean done = false;
+            while (!done) {
+                int tag = input.readTag();
+                switch (tag) {
+                    case 0:
+                        done = true;
+                        break;
+                    case 10: {
+                        java.lang.String s = input.readStringRequireUtf8();
 
-    memoizedIsInitialized = 1;
-    return true;
-  }
-
-  @java.lang.Override
-  public void writeTo(com.google.protobuf.CodedOutputStream output)
-                      throws java.io.IOException {
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(accessToken_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, accessToken_);
+                        accessToken_ = s;
+                        break;
+                    }
+                    default: {
+                        if (!parseUnknownField(
+                                input, unknownFields, extensionRegistry, tag)) {
+                            done = true;
+                        }
+                        break;
+                    }
+                }
+            }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(this);
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(
+                    e).setUnfinishedMessage(this);
+        } finally {
+            this.unknownFields = unknownFields.build();
+            makeExtensionsImmutable();
+        }
     }
-    unknownFields.writeTo(output);
-  }
 
-  @java.lang.Override
-  public int getSerializedSize() {
-    int size = memoizedSize;
-    if (size != -1) return size;
-
-    size = 0;
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(accessToken_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, accessToken_);
-    }
-    size += unknownFields.getSerializedSize();
-    memoizedSize = size;
-    return size;
-  }
-
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
-    if (obj == this) {
-     return true;
-    }
-    if (!(obj instanceof ru.clevertec.news.model.dto.JwtDto)) {
-      return super.equals(obj);
-    }
-    ru.clevertec.news.model.dto.JwtDto other = (ru.clevertec.news.model.dto.JwtDto) obj;
-
-    if (!getAccessToken()
-        .equals(other.getAccessToken())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
-    return true;
-  }
-
-  @java.lang.Override
-  public int hashCode() {
-    if (memoizedHashCode != 0) {
-      return memoizedHashCode;
-    }
-    int hash = 41;
-    hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + ACCESS_TOKEN_FIELD_NUMBER;
-    hash = (53 * hash) + getAccessToken().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
-    memoizedHashCode = hash;
-    return hash;
-  }
-
-  public static ru.clevertec.news.model.dto.JwtDto parseFrom(
-      java.nio.ByteBuffer data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data);
-  }
-  public static ru.clevertec.news.model.dto.JwtDto parseFrom(
-      java.nio.ByteBuffer data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data, extensionRegistry);
-  }
-  public static ru.clevertec.news.model.dto.JwtDto parseFrom(
-      com.google.protobuf.ByteString data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data);
-  }
-  public static ru.clevertec.news.model.dto.JwtDto parseFrom(
-      com.google.protobuf.ByteString data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data, extensionRegistry);
-  }
-  public static ru.clevertec.news.model.dto.JwtDto parseFrom(byte[] data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data);
-  }
-  public static ru.clevertec.news.model.dto.JwtDto parseFrom(
-      byte[] data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data, extensionRegistry);
-  }
-  public static ru.clevertec.news.model.dto.JwtDto parseFrom(java.io.InputStream input)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageV3
-        .parseWithIOException(PARSER, input);
-  }
-  public static ru.clevertec.news.model.dto.JwtDto parseFrom(
-      java.io.InputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageV3
-        .parseWithIOException(PARSER, input, extensionRegistry);
-  }
-  public static ru.clevertec.news.model.dto.JwtDto parseDelimitedFrom(java.io.InputStream input)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageV3
-        .parseDelimitedWithIOException(PARSER, input);
-  }
-  public static ru.clevertec.news.model.dto.JwtDto parseDelimitedFrom(
-      java.io.InputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageV3
-        .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-  }
-  public static ru.clevertec.news.model.dto.JwtDto parseFrom(
-      com.google.protobuf.CodedInputStream input)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageV3
-        .parseWithIOException(PARSER, input);
-  }
-  public static ru.clevertec.news.model.dto.JwtDto parseFrom(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageV3
-        .parseWithIOException(PARSER, input, extensionRegistry);
-  }
-
-  @java.lang.Override
-  public Builder newBuilderForType() { return newBuilder(); }
-  public static Builder newBuilder() {
-    return DEFAULT_INSTANCE.toBuilder();
-  }
-  public static Builder newBuilder(ru.clevertec.news.model.dto.JwtDto prototype) {
-    return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-  }
-  @java.lang.Override
-  public Builder toBuilder() {
-    return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
-  }
-
-  @java.lang.Override
-  protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-    Builder builder = new Builder(parent);
-    return builder;
-  }
-  /**
-   * Protobuf type {@code ru.clevertec.news.model.dto.JwtDto}
-   */
-  public static final class Builder extends
-      com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:ru.clevertec.news.model.dto.JwtDto)
-      ru.clevertec.news.model.dto.JwtDtoOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return ru.clevertec.news.model.dto.JwtDtoProto.internal_static_ru_clevertec_news_model_dto_JwtDto_descriptor;
+    getDescriptor() {
+        return ru.clevertec.news.model.dto.JwtDtoProto.internal_static_ru_clevertec_news_model_dto_JwtDto_descriptor;
+    }
+
+    public static ru.clevertec.news.model.dto.JwtDto parseFrom(
+            java.nio.ByteBuffer data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+    }
+
+    public static ru.clevertec.news.model.dto.JwtDto parseFrom(
+            java.nio.ByteBuffer data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static ru.clevertec.news.model.dto.JwtDto parseFrom(
+            com.google.protobuf.ByteString data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+    }
+
+    public static ru.clevertec.news.model.dto.JwtDto parseFrom(
+            com.google.protobuf.ByteString data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static ru.clevertec.news.model.dto.JwtDto parseFrom(byte[] data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+    }
+
+    public static ru.clevertec.news.model.dto.JwtDto parseFrom(
+            byte[] data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static ru.clevertec.news.model.dto.JwtDto parseFrom(java.io.InputStream input)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+                .parseWithIOException(PARSER, input);
+    }
+
+    public static ru.clevertec.news.model.dto.JwtDto parseFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+                .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static ru.clevertec.news.model.dto.JwtDto parseDelimitedFrom(java.io.InputStream input)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+                .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static ru.clevertec.news.model.dto.JwtDto parseDelimitedFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+                .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static ru.clevertec.news.model.dto.JwtDto parseFrom(
+            com.google.protobuf.CodedInputStream input)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+                .parseWithIOException(PARSER, input);
+    }
+
+    public static ru.clevertec.news.model.dto.JwtDto parseFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+                .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(ru.clevertec.news.model.dto.JwtDto prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    public static ru.clevertec.news.model.dto.JwtDto getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+    }
+
+    public static com.google.protobuf.Parser<JwtDto> parser() {
+        return PARSER;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+            UnusedPrivateParameter unused) {
+        return new JwtDto();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+        return this.unknownFields;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return ru.clevertec.news.model.dto.JwtDtoProto.internal_static_ru_clevertec_news_model_dto_JwtDto_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              ru.clevertec.news.model.dto.JwtDto.class, ru.clevertec.news.model.dto.JwtDto.Builder.class);
+    internalGetFieldAccessorTable() {
+        return ru.clevertec.news.model.dto.JwtDtoProto.internal_static_ru_clevertec_news_model_dto_JwtDto_fieldAccessorTable
+                .ensureFieldAccessorsInitialized(
+                        ru.clevertec.news.model.dto.JwtDto.class, ru.clevertec.news.model.dto.JwtDto.Builder.class);
     }
 
-    // Construct using ru.clevertec.news.model.dto.JwtDto.newBuilder()
-    private Builder() {
-      maybeForceBuilderInitialization();
+    /**
+     * <code>string access_token = 1;</code>
+     *
+     * @return The accessToken.
+     */
+    @java.lang.Override
+    public java.lang.String getAccessToken() {
+        java.lang.Object ref = accessToken_;
+        if (ref instanceof java.lang.String) {
+            return (java.lang.String) ref;
+        } else {
+            com.google.protobuf.ByteString bs =
+                    (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            accessToken_ = s;
+            return s;
+        }
     }
 
-    private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
-    }
+    /**
+     * <code>string access_token = 1;</code>
+     *
+     * @return The bytes for accessToken.
+     */
     @java.lang.Override
-    public Builder clear() {
-      super.clear();
-      accessToken_ = "";
-
-      return this;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Descriptors.Descriptor
-        getDescriptorForType() {
-      return ru.clevertec.news.model.dto.JwtDtoProto.internal_static_ru_clevertec_news_model_dto_JwtDto_descriptor;
-    }
-
-    @java.lang.Override
-    public ru.clevertec.news.model.dto.JwtDto getDefaultInstanceForType() {
-      return ru.clevertec.news.model.dto.JwtDto.getDefaultInstance();
-    }
-
-    @java.lang.Override
-    public ru.clevertec.news.model.dto.JwtDto build() {
-      ru.clevertec.news.model.dto.JwtDto result = buildPartial();
-      if (!result.isInitialized()) {
-        throw newUninitializedMessageException(result);
-      }
-      return result;
-    }
-
-    @java.lang.Override
-    public ru.clevertec.news.model.dto.JwtDto buildPartial() {
-      ru.clevertec.news.model.dto.JwtDto result = new ru.clevertec.news.model.dto.JwtDto(this);
-      result.accessToken_ = accessToken_;
-      onBuilt();
-      return result;
-    }
-
-    @java.lang.Override
-    public Builder clone() {
-      return super.clone();
-    }
-    @java.lang.Override
-    public Builder setField(
-        com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
-      return super.setField(field, value);
-    }
-    @java.lang.Override
-    public Builder clearField(
-        com.google.protobuf.Descriptors.FieldDescriptor field) {
-      return super.clearField(field);
-    }
-    @java.lang.Override
-    public Builder clearOneof(
-        com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-      return super.clearOneof(oneof);
-    }
-    @java.lang.Override
-    public Builder setRepeatedField(
-        com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, java.lang.Object value) {
-      return super.setRepeatedField(field, index, value);
-    }
-    @java.lang.Override
-    public Builder addRepeatedField(
-        com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
-      return super.addRepeatedField(field, value);
-    }
-    @java.lang.Override
-    public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof ru.clevertec.news.model.dto.JwtDto) {
-        return mergeFrom((ru.clevertec.news.model.dto.JwtDto)other);
-      } else {
-        super.mergeFrom(other);
-        return this;
-      }
-    }
-
-    public Builder mergeFrom(ru.clevertec.news.model.dto.JwtDto other) {
-      if (other == ru.clevertec.news.model.dto.JwtDto.getDefaultInstance()) return this;
-      if (!other.getAccessToken().isEmpty()) {
-        accessToken_ = other.accessToken_;
-        onChanged();
-      }
-      this.mergeUnknownFields(other.unknownFields);
-      onChanged();
-      return this;
+    public com.google.protobuf.ByteString
+    getAccessTokenBytes() {
+        java.lang.Object ref = accessToken_;
+        if (ref instanceof java.lang.String) {
+            com.google.protobuf.ByteString b =
+                    com.google.protobuf.ByteString.copyFromUtf8(
+                            (java.lang.String) ref);
+            accessToken_ = b;
+            return b;
+        } else {
+            return (com.google.protobuf.ByteString) ref;
+        }
     }
 
     @java.lang.Override
     public final boolean isInitialized() {
-      return true;
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
+
+        memoizedIsInitialized = 1;
+        return true;
     }
 
     @java.lang.Override
-    public Builder mergeFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      ru.clevertec.news.model.dto.JwtDto parsedMessage = null;
-      try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (ru.clevertec.news.model.dto.JwtDto) e.getUnfinishedMessage();
-        throw e.unwrapIOException();
-      } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+            throws java.io.IOException {
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(accessToken_)) {
+            com.google.protobuf.GeneratedMessageV3.writeString(output, 1, accessToken_);
         }
-      }
-      return this;
+        unknownFields.writeTo(output);
     }
 
-    private java.lang.Object accessToken_ = "";
-    /**
-     * <code>string access_token = 1;</code>
-     * @return The accessToken.
-     */
-    public java.lang.String getAccessToken() {
-      java.lang.Object ref = accessToken_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        accessToken_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    @java.lang.Override
+    public int getSerializedSize() {
+        int size = memoizedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(accessToken_)) {
+            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, accessToken_);
+        }
+        size += unknownFields.getSerializedSize();
+        memoizedSize = size;
+        return size;
     }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof ru.clevertec.news.model.dto.JwtDto)) {
+            return super.equals(obj);
+        }
+        ru.clevertec.news.model.dto.JwtDto other = (ru.clevertec.news.model.dto.JwtDto) obj;
+
+        if (!getAccessToken()
+                .equals(other.getAccessToken())) return false;
+        if (!unknownFields.equals(other.unknownFields)) return false;
+        return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+        if (memoizedHashCode != 0) {
+            return memoizedHashCode;
+        }
+        int hash = 41;
+        hash = (19 * hash) + getDescriptor().hashCode();
+        hash = (37 * hash) + ACCESS_TOKEN_FIELD_NUMBER;
+        hash = (53 * hash) + getAccessToken().hashCode();
+        hash = (29 * hash) + unknownFields.hashCode();
+        memoizedHashCode = hash;
+        return hash;
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() {
+        return newBuilder();
+    }
+
+    @java.lang.Override
+    public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+                ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<JwtDto> getParserForType() {
+        return PARSER;
+    }
+
+    @java.lang.Override
+    public ru.clevertec.news.model.dto.JwtDto getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+    }
+
     /**
-     * <code>string access_token = 1;</code>
-     * @return The bytes for accessToken.
+     * Protobuf type {@code ru.clevertec.news.model.dto.JwtDto}
      */
-    public com.google.protobuf.ByteString
+    public static final class Builder extends
+            com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+            // @@protoc_insertion_point(builder_implements:ru.clevertec.news.model.dto.JwtDto)
+            ru.clevertec.news.model.dto.JwtDtoOrBuilder {
+        private java.lang.Object accessToken_ = "";
+
+        // Construct using ru.clevertec.news.model.dto.JwtDto.newBuilder()
+        private Builder() {
+            maybeForceBuilderInitialization();
+        }
+
+        private Builder(
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            super(parent);
+            maybeForceBuilderInitialization();
+        }
+
+        public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+            return ru.clevertec.news.model.dto.JwtDtoProto.internal_static_ru_clevertec_news_model_dto_JwtDto_descriptor;
+        }
+
+        @java.lang.Override
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+            return ru.clevertec.news.model.dto.JwtDtoProto.internal_static_ru_clevertec_news_model_dto_JwtDto_fieldAccessorTable
+                    .ensureFieldAccessorsInitialized(
+                            ru.clevertec.news.model.dto.JwtDto.class, ru.clevertec.news.model.dto.JwtDto.Builder.class);
+        }
+
+        private void maybeForceBuilderInitialization() {
+            if (com.google.protobuf.GeneratedMessageV3
+                    .alwaysUseFieldBuilders) {
+            }
+        }
+
+        @java.lang.Override
+        public Builder clear() {
+            super.clear();
+            accessToken_ = "";
+
+            return this;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Descriptors.Descriptor
+        getDescriptorForType() {
+            return ru.clevertec.news.model.dto.JwtDtoProto.internal_static_ru_clevertec_news_model_dto_JwtDto_descriptor;
+        }
+
+        @java.lang.Override
+        public ru.clevertec.news.model.dto.JwtDto getDefaultInstanceForType() {
+            return ru.clevertec.news.model.dto.JwtDto.getDefaultInstance();
+        }
+
+        @java.lang.Override
+        public ru.clevertec.news.model.dto.JwtDto build() {
+            ru.clevertec.news.model.dto.JwtDto result = buildPartial();
+            if (!result.isInitialized()) {
+                throw newUninitializedMessageException(result);
+            }
+            return result;
+        }
+
+        @java.lang.Override
+        public ru.clevertec.news.model.dto.JwtDto buildPartial() {
+            ru.clevertec.news.model.dto.JwtDto result = new ru.clevertec.news.model.dto.JwtDto(this);
+            result.accessToken_ = accessToken_;
+            onBuilt();
+            return result;
+        }
+
+        @java.lang.Override
+        public Builder clone() {
+            return super.clone();
+        }
+
+        @java.lang.Override
+        public Builder setField(
+                com.google.protobuf.Descriptors.FieldDescriptor field,
+                java.lang.Object value) {
+            return super.setField(field, value);
+        }
+
+        @java.lang.Override
+        public Builder clearField(
+                com.google.protobuf.Descriptors.FieldDescriptor field) {
+            return super.clearField(field);
+        }
+
+        @java.lang.Override
+        public Builder clearOneof(
+                com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+            return super.clearOneof(oneof);
+        }
+
+        @java.lang.Override
+        public Builder setRepeatedField(
+                com.google.protobuf.Descriptors.FieldDescriptor field,
+                int index, java.lang.Object value) {
+            return super.setRepeatedField(field, index, value);
+        }
+
+        @java.lang.Override
+        public Builder addRepeatedField(
+                com.google.protobuf.Descriptors.FieldDescriptor field,
+                java.lang.Object value) {
+            return super.addRepeatedField(field, value);
+        }
+
+        @java.lang.Override
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+            if (other instanceof ru.clevertec.news.model.dto.JwtDto) {
+                return mergeFrom((ru.clevertec.news.model.dto.JwtDto) other);
+            } else {
+                super.mergeFrom(other);
+                return this;
+            }
+        }
+
+        public Builder mergeFrom(ru.clevertec.news.model.dto.JwtDto other) {
+            if (other == ru.clevertec.news.model.dto.JwtDto.getDefaultInstance()) return this;
+            if (!other.getAccessToken().isEmpty()) {
+                accessToken_ = other.accessToken_;
+                onChanged();
+            }
+            this.mergeUnknownFields(other.unknownFields);
+            onChanged();
+            return this;
+        }
+
+        @java.lang.Override
+        public final boolean isInitialized() {
+            return true;
+        }
+
+        @java.lang.Override
+        public Builder mergeFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            ru.clevertec.news.model.dto.JwtDto parsedMessage = null;
+            try {
+                parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                parsedMessage = (ru.clevertec.news.model.dto.JwtDto) e.getUnfinishedMessage();
+                throw e.unwrapIOException();
+            } finally {
+                if (parsedMessage != null) {
+                    mergeFrom(parsedMessage);
+                }
+            }
+            return this;
+        }
+
+        /**
+         * <code>string access_token = 1;</code>
+         *
+         * @return The accessToken.
+         */
+        public java.lang.String getAccessToken() {
+            java.lang.Object ref = accessToken_;
+            if (!(ref instanceof java.lang.String)) {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                accessToken_ = s;
+                return s;
+            } else {
+                return (java.lang.String) ref;
+            }
+        }
+
+        /**
+         * <code>string access_token = 1;</code>
+         *
+         * @param value The accessToken to set.
+         * @return This builder for chaining.
+         */
+        public Builder setAccessToken(
+                java.lang.String value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            accessToken_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>string access_token = 1;</code>
+         *
+         * @return The bytes for accessToken.
+         */
+        public com.google.protobuf.ByteString
         getAccessTokenBytes() {
-      java.lang.Object ref = accessToken_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        accessToken_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+            java.lang.Object ref = accessToken_;
+            if (ref instanceof String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (java.lang.String) ref);
+                accessToken_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        /**
+         * <code>string access_token = 1;</code>
+         *
+         * @param value The bytes for accessToken to set.
+         * @return This builder for chaining.
+         */
+        public Builder setAccessTokenBytes(
+                com.google.protobuf.ByteString value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            checkByteStringIsUtf8(value);
+
+            accessToken_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>string access_token = 1;</code>
+         *
+         * @return This builder for chaining.
+         */
+        public Builder clearAccessToken() {
+
+            accessToken_ = getDefaultInstance().getAccessToken();
+            onChanged();
+            return this;
+        }
+
+        @java.lang.Override
+        public final Builder setUnknownFields(
+                final com.google.protobuf.UnknownFieldSet unknownFields) {
+            return super.setUnknownFields(unknownFields);
+        }
+
+        @java.lang.Override
+        public final Builder mergeUnknownFields(
+                final com.google.protobuf.UnknownFieldSet unknownFields) {
+            return super.mergeUnknownFields(unknownFields);
+        }
+
+
+        // @@protoc_insertion_point(builder_scope:ru.clevertec.news.model.dto.JwtDto)
     }
-    /**
-     * <code>string access_token = 1;</code>
-     * @param value The accessToken to set.
-     * @return This builder for chaining.
-     */
-    public Builder setAccessToken(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      accessToken_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string access_token = 1;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearAccessToken() {
-      
-      accessToken_ = getDefaultInstance().getAccessToken();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string access_token = 1;</code>
-     * @param value The bytes for accessToken to set.
-     * @return This builder for chaining.
-     */
-    public Builder setAccessTokenBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      accessToken_ = value;
-      onChanged();
-      return this;
-    }
-    @java.lang.Override
-    public final Builder setUnknownFields(
-        final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.setUnknownFields(unknownFields);
-    }
-
-    @java.lang.Override
-    public final Builder mergeUnknownFields(
-        final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.mergeUnknownFields(unknownFields);
-    }
-
-
-    // @@protoc_insertion_point(builder_scope:ru.clevertec.news.model.dto.JwtDto)
-  }
-
-  // @@protoc_insertion_point(class_scope:ru.clevertec.news.model.dto.JwtDto)
-  private static final ru.clevertec.news.model.dto.JwtDto DEFAULT_INSTANCE;
-  static {
-    DEFAULT_INSTANCE = new ru.clevertec.news.model.dto.JwtDto();
-  }
-
-  public static ru.clevertec.news.model.dto.JwtDto getDefaultInstance() {
-    return DEFAULT_INSTANCE;
-  }
-
-  private static final com.google.protobuf.Parser<JwtDto>
-      PARSER = new com.google.protobuf.AbstractParser<JwtDto>() {
-    @java.lang.Override
-    public JwtDto parsePartialFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return new JwtDto(input, extensionRegistry);
-    }
-  };
-
-  public static com.google.protobuf.Parser<JwtDto> parser() {
-    return PARSER;
-  }
-
-  @java.lang.Override
-  public com.google.protobuf.Parser<JwtDto> getParserForType() {
-    return PARSER;
-  }
-
-  @java.lang.Override
-  public ru.clevertec.news.model.dto.JwtDto getDefaultInstanceForType() {
-    return DEFAULT_INSTANCE;
-  }
 
 }
 
